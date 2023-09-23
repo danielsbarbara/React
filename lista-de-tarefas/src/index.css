@@ -1,0 +1,93 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  height: 100vh;
+  background-color: chocolate;
+  display: flex;
+  flex-direction: column;
+}
+
+.main2 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.formulario{
+  display: flex;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.input{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+input {
+  border-style: none;
+  text-align: center;
+  border-radius: 20px;
+  width: 150px;
+  height: 30px;
+  background-color: lightgray;  
+  color: black;
+}
+
+form > button {
+  border-radius: 20px;
+  background-color: rgb(236, 190, 144);
+  width: 100px;
+  transition: 0.5s;
+}
+
+form > button:hover{
+  background-color: rgb(125, 63, 20);
+  color: white;
+  transition: 0.7s;
+  
+}
+
+.formulario > button {
+  background-color: chocolate;
+  border-style: none;
+  cursor: pointer;
+  transform: translate(0, 1px);
+}
+
+.footer {
+  justify-self: flex-end;
+  margin-top: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
