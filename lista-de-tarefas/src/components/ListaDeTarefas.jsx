@@ -22,11 +22,17 @@ export const ListaDeTarefas = () => {
         console.log(lista)
     }
 
+    const checkedItem = (id) => {
+        setLista(lista => lista.map(ele => ele.id === id ? {...ele, concluido: !ele.concluido} : ele))
+        console.log(lista)
+    }
+
+
     return (
         <div className='main2'>
             <Titulo />
             <InputTarefas lista={lista} editLista={setLista} addItems={handleAddList}/>
-            <Lista lista={lista} editLista={setLista} deleteItem={handleDelete}/>
+            <Lista lista={lista} editLista={setLista} deleteItem={handleDelete} checkConcluido={checkedItem}/>
             <Footer lista={lista}/>
         </div>
     )

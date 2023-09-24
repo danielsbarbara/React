@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const InputTarefas = ({ lista, editLista, addItems }) => {
+export const InputTarefas = ({ lista, addItems }) => {
     const [descricao, setDescricao] = useState('')
 
     const handleSubmit = (e) => {
@@ -22,6 +22,7 @@ export const InputTarefas = ({ lista, editLista, addItems }) => {
             <p>Escreve uma lista de compras, ou tarefas que tenhas de realizar!</p>
             <form onSubmit={handleSubmit}>
                 <input
+                    className="inputText" 
                     type="text"
                     placeholder="tarefa"
                     value={descricao}
