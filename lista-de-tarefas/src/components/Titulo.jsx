@@ -1,5 +1,7 @@
 export const Titulo = () => {
     return (
-        <h1>Lista de Tarefas</h1>
+        <div className="titulo">
+            <h1>Lista de Tarefas</h1>
+        </div>
     )
 }

@@ -3,7 +3,7 @@ export const Footer = ({ lista }) => {
 
     return (
         <div className="footer">
-            <p>{lista.length} tarefas de {verdadeiros} tarefas realizadas!</p>
+            <p><em>{lista.length} tarefas de {verdadeiros} tarefas realizadas!</em></p>
         </div>
     )
 }
