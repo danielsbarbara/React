@@ -1,6 +1,5 @@
-export const Footer = ({lista}) => {
-    let verdadeiros = 0
-    lista.forEach(value => value.concluido && verdadeiros++)
+export const Footer = ({ lista }) => {
+    let verdadeiros = lista.reduce((acc, ele) => ele.concluido ? acc += 1 : acc, 0)
 
     return (
         <div className="footer">
