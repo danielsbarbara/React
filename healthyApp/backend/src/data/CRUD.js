@@ -12,4 +12,22 @@ async function CreateNewProduct(product) {
   return result;
 }
 
-module.exports = { GetProducts, CreateNewProduct };
+async function CheckUser(user) {
+  const collection = await GetCollection("HealthyApp", "Users")
+  const result = await collection.findOne({ user: user })
+  if (result === null) return { user: false }
+  return result
+}
+
+async function CreateUser(user) {
+  const collection = await GetCollection("HealthyApp", "Users")
+  const result = await collection.insertOne(user)
+  return result
+}
+
+module.exports = { 
+  GetProducts, 
+  CreateNewProduct, 
+  CheckUser,
+  CreateUser
+};
