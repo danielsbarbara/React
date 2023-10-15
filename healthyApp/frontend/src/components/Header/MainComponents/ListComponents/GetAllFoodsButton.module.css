@@ -1,0 +1,16 @@
+.button{
+    background-color: greenyellow;
+    border: none;
+    height: 20px;
+    width: 110px;
+    border-radius: 10px;
+    transition: 500ms;
+}
+
+.button:hover{
+    transition: 500ms;
+    color: white;
+    background-color: rgb(143, 212, 40);
+    cursor: pointer;
+}
+
