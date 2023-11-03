@@ -1,4 +1,4 @@
-export async function fetchTop5(value, info, year){
+export default async function fetchTop5(value, info, year){
     if(value === 1){
         const res = await fetch(`/api/top5/${info}`)
         if(res.status === 200){

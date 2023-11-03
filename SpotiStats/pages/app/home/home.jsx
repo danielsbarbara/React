@@ -9,7 +9,7 @@ import styles from "./home.module.css"
 import { useEffect, useState } from "react";
 import { fetchTop5 } from "@/pages/logic/fetchTop5";
 
-export function Application() {
+export default function Application() {
     const [years, setYears] = useState()
     const [data, setDate] = useState()
     const [info, setInfo] = useState({ select: 'artist', year: 2023, value: 1 })
