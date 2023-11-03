@@ -1,0 +1,25 @@
+.mainMonths{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.monthContainer{
+    color: white;
+    width: 5rem;
+    padding: 0.3rem;
+    border-radius: 10px;
+    background-color: var(--spotColor);
+    transition: 500ms;
+}
+
+.normalMonth{
+    color: white;
+    width: 5rem;
+    padding: 0.3rem;
+    border-radius: 10px;
+    opacity: 0.3;
+    background-color: var(--spotColor);
+    transition: 500ms;
+}

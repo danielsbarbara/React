@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    opacity: 1;
+}
+
+.highlight{
+    background-color: var(--spotColor);
+    padding: 0.3rem;
+    border-radius: 10px;
+    transition: 500ms;
+}
+
+.content{
+    background-color: var(--spotColor);
+    opacity: 0.3;
+    padding: 0.3rem;
+    border-radius: 10px;
+    transition: 500ms;
+}
+
+
+

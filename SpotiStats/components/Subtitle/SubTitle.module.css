@@ -1,0 +1,11 @@
+.content {
+    color:  white;
+    transition: 500ms;
+}
+
+.highlight {
+    color:  white;
+    transition: 500ms;
+    text-shadow: 0 0 10px var(--spotColor);
+    
+}

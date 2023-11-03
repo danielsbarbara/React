@@ -1,0 +1,38 @@
+.container{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.selectors{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+}
+
+.infoCard{
+    display: flex;
+    justify-content: center;
+    height: 70%;
+}
+
+.yearsContainer{
+    height: 1.8rem;
+}
+
+.navbar{
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    left: 0;
+    bottom: 0;
+}
