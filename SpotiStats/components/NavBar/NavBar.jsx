@@ -6,7 +6,7 @@ export function NavBar(){
     const router = useRouter()
 
     function handleClick(){
-        router.push("/app/User/User")
+        router.push("/app/User")
     }
     return(
         <div className={styles.container}>

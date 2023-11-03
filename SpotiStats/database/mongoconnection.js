@@ -1,7 +1,6 @@
 const { MongoClient } = require('mongodb')
 // const url = "mongodb://127.0.0.1:27017"
 const url = process.env.URL
-console.log(url)
 const defaultDbName = "SpotiStats"
 let client = undefined
 
