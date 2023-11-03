@@ -5,11 +5,10 @@ import { Tittle } from "@/components/Title/Title";
 import { YearCards } from "@/components/YearCards/YearCards";
 import styles from "./User.module.css"
 import { useEffect, useState } from "react";
-import { fetchToGetYears } from "@/pages/logic/fetchToGetYears";
 import { Months } from "@/components/Months/Months";
-import { fetchForMin } from "@/pages/logic/fetchForMin";
-import { NavBar } from "@/components/NavBar/NavBar";
 import { useRouter } from "next/navigation";
+import { fetchToGetYears } from "@/logic/fetchToGetYears";
+import { fetchForMin } from "@/logic/fetchForMin";
 
 export default function User(){
     const [years, setYears] = useState()

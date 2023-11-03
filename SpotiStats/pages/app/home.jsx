@@ -4,10 +4,10 @@ import { Select } from "@/components/Select/Select";
 import { Subtitle } from "@/components/Subtitle/SubTitle";
 import { Tittle } from "@/components/Title/Title";
 import { YearCards } from "@/components/YearCards/YearCards";
-import { fetchToGetYears } from "@/pages/logic/fetchToGetYears";
 import styles from "./home.module.css"
 import { useEffect, useState } from "react";
-import { fetchTop5 } from "@/pages/logic/fetchTop5";
+import { fetchToGetYears } from "@/logic/fetchToGetYears";
+import { fetchTop5 } from "@/logic/fetchTop5";
 
 export default function Application() {
     const [years, setYears] = useState()

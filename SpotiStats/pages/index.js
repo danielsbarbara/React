@@ -1,10 +1,8 @@
-import { Application } from "./app/home/home";
-
-import { YearCards } from "@/components/YearCards/YearCards";
+import Application from "./app/home";
 
 
 export default function Home() {
   return (
-    <Application />
+    <Application/>
   )
 }
