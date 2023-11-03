@@ -18,7 +18,7 @@ export default function Application() {
     useEffect(() => {
         async function getYears() {
             const result = await fetchToGetYears()
-            setYears(result.result)
+            setYears(result?.result)
         }
         if (info.value === 1) {
             async function getData() {
