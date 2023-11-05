@@ -20,9 +20,9 @@ export function Button({ page, info }) {
             router.push('app/Home/home')
         } else {
             const result = await signin(info)
+            const token = await getToken(info, result)
             if (!result) return notifyD()
             notifyS()
-            const token = await getToken(info, result)
             localStorage.setItem('token', JSON.stringify(token))    
             router.push('/app/Home/home')
         }
