@@ -10,19 +10,20 @@ export function Button({ page, info }) {
     const router = useRouter()
     const notifyS = () => toast.success("Registo criado com sucesso")
     const notifyD = () => toast.error("Dados inválidos")
-    async function onClick() {
 
+    async function onClick() {
         if (page === 'login') {
             const result = await login(info)
             if (!result) return notifyD()
-            notifyS()
             localStorage.setItem('token', JSON.stringify(result.result))
+            router.push('app/Home/home')
         } else {
             const result = await signin(info)
             if (!result) return notifyD()
             notifyS()
             setTimeout(() => {
                 localStorage.setItem('token', JSON.stringify(result.result))
+                router.push('app/Home/home')
             }, 1000)
         }
     }
@@ -43,7 +44,7 @@ export function Button({ page, info }) {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="light"
+                theme="dark"
             />
         </div>
     )
