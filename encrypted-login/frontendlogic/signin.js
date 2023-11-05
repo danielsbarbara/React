@@ -7,7 +7,7 @@ export async function signin(info) {
     body: JSON.stringify({ name: info.name, email: info.email, password: info.password })
   };
 
-  const res = await fetch('/api/signin', options)
+  const res = await fetch('api/signin', options)
   if (res.status === 200) {
     const result = await res.json()
    return result
