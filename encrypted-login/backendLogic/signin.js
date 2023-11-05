@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt')
 const saltRounds = 10
 
 export async function signin(user){
-    console.log(new Date())
     const result = await GetUser(user.email)
     if(result) return false
     const {password} = user
