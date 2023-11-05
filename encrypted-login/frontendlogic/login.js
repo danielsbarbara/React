@@ -5,7 +5,7 @@ export async function login(info) {
         headers: { 'Content-Type': 'application/json', 'User-Agent': 'insomnia/8.2.0' },
         body: JSON.stringify({ email: info.email, password: info.password })
     };
-    const res = await fetch('api/login', options)
+    const res = await fetch('/api/login', options)
     if (res.status === 200) {
         const body = await res.json()
         if (body) {
@@ -14,7 +14,7 @@ export async function login(info) {
                 headers: { 'Content-Type': 'application/json', 'User-Agent': 'insomnia/8.2.0' },
                 body: JSON.stringify({ email: info.email })
             };
-            const restoken = await fetch('api/gettoken', options)
+            const restoken = await fetch('/api/gettoken', options)
             if (restoken.status === 200) {
                 const body = await restoken.json()
                 return body
