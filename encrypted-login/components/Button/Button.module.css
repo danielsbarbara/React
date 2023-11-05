@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    gap: 20px;
+}
+
+.button{
+    background-color: lightblue;
+    border-radius: 10px;
+    height: 2rem;
+    width: 5rem;
+    color: black;
+    border: none;
+}
+
+.button:hover{
+    background-color: rgb(134, 167, 179)
+}

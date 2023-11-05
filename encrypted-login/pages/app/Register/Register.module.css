@@ -1,0 +1,39 @@
+.container {
+    background-image: linear-gradient(to top, rgb(118, 193, 247), black);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputsContainer {
+    border: 2px solid white;
+    width: 80%;
+    height: 80%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.image {
+    background: url("../../../public/images/loginImage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50%;
+    border-bottom: 2px solid white;
+}
+.title{
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
