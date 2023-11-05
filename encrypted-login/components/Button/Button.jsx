@@ -19,7 +19,6 @@ export function Button({ page, info }) {
             localStorage.setItem('token', JSON.stringify(result.result))
             router.push('app/Home/home')
         } else {
-            
             const result = await signin(info)
             if (!result) return notifyD()
             notifyS()
@@ -34,7 +33,7 @@ export function Button({ page, info }) {
                     }, 1000)
                 }
                 fetchToken()
-            }, 1000)
+            }, 1500)
         }
     }
     function gotoRegisterPage() {
