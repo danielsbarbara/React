@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import styles from "./home.module.css"
 import { Title } from "@/components/Title/Title";
-import { checkLocalStorage } from "@/frontendlogic/testeLocalStorage";
+import { checkLocalStorage } from "@/frontendlogic/getToken";
 import { useEffect } from "react";
 
 export default function Home(){

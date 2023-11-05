@@ -5,6 +5,7 @@ import { signin } from "../../frontendlogic/signin"
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getToken } from "@/frontendlogic/getToken";
 
 export function Button({ page, info }) {
     const router = useRouter()
@@ -22,8 +23,13 @@ export function Button({ page, info }) {
             if (!result) return notifyD()
             notifyS()
             setTimeout(() => {
-                localStorage.setItem('token', JSON.stringify(result.result))
-                router.push('app/Home/home')
+                async function fetchToken(){
+                    const token = await getToken(info, result)
+                    console.log(token)
+                    localStorage.setItem('token', JSON.stringify(token.result))
+                router.push('/app/Home/home')
+                }
+                fetchToken()
             }, 1000)
         }
     }
