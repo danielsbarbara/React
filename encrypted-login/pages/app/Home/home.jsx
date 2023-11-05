@@ -8,8 +8,10 @@ export default function Home(){
     const router = useRouter()
 
     useEffect(() => {
-        const auth = JSON.parse(localStorage.getItem('token')) ?? false
-        if(!auth) router.push('/')
+        setTimeout(() => {
+            const auth = JSON.parse(localStorage.getItem('token')) ?? false
+            if(!auth) router.push('/')  
+        }, 1000);
     },[])
 
     function goBack(){
