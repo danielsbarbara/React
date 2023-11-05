@@ -8,7 +8,7 @@ export async function getToken(info, result){
       const resToken = await fetch('/api/gettoken', options)
       if (resToken.status === 200) {
         const token = await resToken.json()
-        return token
+        return token.result
       }
     }
 }

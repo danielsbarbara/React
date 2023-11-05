@@ -19,20 +19,22 @@ export function Button({ page, info }) {
             localStorage.setItem('token', JSON.stringify(result.result))
             router.push('app/Home/home')
         } else {
+            
             const result = await signin(info)
             if (!result) return notifyD()
             notifyS()
             setTimeout(() => {
                 async function fetchToken(){
                     const token = await getToken(info, result)
-                    console.log(token)
+                    
                     setTimeout(() => {
-                        localStorage.setItem('token', JSON.stringify(token.result))
+                        localStorage.setItem('token', JSON.stringify(token))
+                       
                         router.push('/app/Home/home')
                     }, 1000)
                 }
                 fetchToken()
-            }, 2000)
+            }, 1000)
         }
     }
     function gotoRegisterPage() {
