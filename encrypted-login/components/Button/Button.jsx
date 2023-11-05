@@ -22,17 +22,9 @@ export function Button({ page, info }) {
             const result = await signin(info)
             if (!result) return notifyD()
             notifyS()
-            setTimeout(() => {
-                async function fetchToken(){
-                    const token = await getToken(info, result)
-                    setTimeout(() => {
-                        localStorage.setItem('token', JSON.stringify(token))
-                       
-                        router.push('/app/Home/home')
-                    }, 2000)
-                }
-                fetchToken()
-            }, 1000)
+            const token = await getToken(info, result)
+            localStorage.setItem('token', JSON.stringify(token))    
+            router.push('/app/Home/home')
         }
     }
     function gotoRegisterPage() {
