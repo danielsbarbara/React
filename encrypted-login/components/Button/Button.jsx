@@ -26,8 +26,10 @@ export function Button({ page, info }) {
                 async function fetchToken(){
                     const token = await getToken(info, result)
                     console.log(token)
-                    localStorage.setItem('token', JSON.stringify(token.result))
-                    router.push('/app/Home/home')
+                    setTimeout(() => {
+                        localStorage.setItem('token', JSON.stringify(token.result))
+                        router.push('/app/Home/home')
+                    }, 1000)
                 }
                 fetchToken()
             }, 2000)
