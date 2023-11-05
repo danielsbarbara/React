@@ -1,7 +1,7 @@
 const {MongoClient} = require('mongodb')
 const env = require('dotenv')
 // const url = "mongodb://127.0.0.1:27017"
-const url = process.env.URL
+const url = "mongodb+srv://danielsantosbarbara:jAgcoomllaSWd5hP@cluster0.wxjbxxf.mongodb.net/"
 const defaultDbName = "EncryptedPw"
 let client = undefined
 
