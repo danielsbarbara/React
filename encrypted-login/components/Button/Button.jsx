@@ -25,15 +25,14 @@ export function Button({ page, info }) {
             setTimeout(() => {
                 async function fetchToken(){
                     const token = await getToken(info, result)
-                    
                     setTimeout(() => {
                         localStorage.setItem('token', JSON.stringify(token))
                        
                         router.push('/app/Home/home')
-                    }, 1000)
+                    }, 2000)
                 }
                 fetchToken()
-            }, 1500)
+            }, 1000)
         }
     }
     function gotoRegisterPage() {
