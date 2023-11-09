@@ -1,0 +1,8 @@
+.h1{
+    color: white;
+}
+
+.gameName{
+    transform: translateY(-150px);
+    color: white;
+}

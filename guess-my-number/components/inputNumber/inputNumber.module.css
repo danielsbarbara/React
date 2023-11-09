@@ -1,0 +1,16 @@
+.input{
+    width: 6rem;
+    height: 4rem;
+    font-size: 3rem;
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+.container{
+    border: 2px solid white;
+}
+
+.input:focus{
+    outline: none;
+}
