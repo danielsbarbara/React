@@ -7,6 +7,15 @@
     align-items: center;
 }
 
+.win{
+    height: 100vh;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .Header{
     display: flex;
     gap: 7rem;

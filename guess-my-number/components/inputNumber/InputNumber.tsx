@@ -1,9 +1,34 @@
 import styles from "./inputNumber.module.css"
 
-export function InputNumber(){
+type NumProps = {
+    inputNum: number,
+    setInputNum: any,
+    randomNum: number,
+    check: Function,
+    userNum: number
+}
+
+export function InputNumber({inputNum, setInputNum, randomNum, check, userNum}: NumProps){
+
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>){
+        const number: number = Number(event.target.value)
+        setInputNum(number)
+    }
+
     return(
-        <div className={styles.container}>
-            <input type="number" className={styles.input}/>
+        <div className={styles.all}>
+            <div className={styles.container}>
+                <input
+                type="number"
+                className={styles.input}
+                value={inputNum}
+                onChange={(event) => handleChange(event)}
+                />
+            </div>
+            <button 
+            onClick={() => check(inputNum, randomNum, "CHECK")}
+            disabled={userNum === randomNum ? true : false}
+            >CHECK!</button>
         </div>
     )
 }
