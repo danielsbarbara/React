@@ -5,6 +5,7 @@
     background-color: black;
     border: none;
     color: white;
+    text-align: center;
 }
 
 .container{
@@ -13,6 +14,11 @@
 
 .input:focus{
     outline: none;
+}
+
+.buttonCheck{
+    height: 2rem;
+    width: 6rem;
 }
 
 .all{

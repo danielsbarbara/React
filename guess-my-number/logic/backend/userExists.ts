@@ -10,7 +10,7 @@ export async function verifyIfExists(email: string, password:string, name: strin
     //if not exist, create a encrypted password and store the new user in Database
     genSalt(10).then((salt)=> hash(password, salt)).then((hash) =>{
         const password: string = hash
-        const newUser: object = {name, email, password}
+        const newUser: object = {name, email, password, highscore: 0}
         CreateNewUser(newUser)
     })
     return true

@@ -25,7 +25,7 @@ export function Button({ description, setRegister, info }: descriptionProps) {
                 headers: { 'Content-Type': 'application/json', 'User-Agent': 'insomnia/8.3.0' },
                 body: JSON.stringify({ email: info.email, password: info.password })
             };
-            console.log(options)
+        
             const res = await fetch('api/v1/logIn', options)
             if (res.status === 200) {
                 const body = await res.json()

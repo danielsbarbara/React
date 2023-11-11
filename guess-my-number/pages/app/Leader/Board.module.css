@@ -1,0 +1,19 @@
+.container{
+    background-color: black;
+    height: 100vh;
+    text-align: center;
+}
+
+.h1{
+    padding: 1rem;
+    color: white;
+}
+
+.leaderboard{
+    height: 80%;
+}
+
+.backbutton {
+    height: 2rem;
+    width: 6rem;
+}
