@@ -17,6 +17,8 @@
 }
 
 .buttonCheck{
+    background-color: white;
+    border: none;
     height: 2rem;
     width: 6rem;
 }

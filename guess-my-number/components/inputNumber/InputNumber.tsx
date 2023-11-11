@@ -31,8 +31,7 @@ export function InputNumber({ inputNum, setInputNum, randomNum, check, userNum }
                 <button
                     onClick={(event) => check(inputNum, randomNum,event, "CHECK")}
                     disabled={userNum === randomNum ? true : false}
-                    className={styles.buttonCheck}
-                >CHECK!</button>
+                    className={styles.buttonCheck}>CHECK!</button>
             </div>
       
     )
