@@ -90,42 +90,44 @@ export default function Game() {
     }
     return (
         <div className={userNum === randomNum ? styles.win : styles.gamePage}>
-            <div className={styles.Header}>
-                <Button
-                    description="AGAIN!"
-                    inputNum={inputNum}
-                    randomNum={randomNum}
-                    resetAll={resetAllOrChangePage}
-                />
-                <Button
-                    description="LEADER BOARD"
-                    inputNum={inputNum}
-                    randomNum={randomNum}
-                    resetAll={resetAllOrChangePage}
-                />
-             
-                <LogOut />
-            </div>
-            <div className={styles.theNumber}>
-                <GameTitle />
-                <Text text="<Between 1 and 20>" currentScore={currentScore} highScore={highScore} />
-                <TheNumber number={randomNum} userNum={userNum} />
-            </div>
-            <div className={styles.interactiveContainer}>
-                <div className={styles.inputAndButton}>
-                    <InputNumber
-                        setInputNum={setInputNum}
+            <div className={styles.ajustcontainer}>
+                <div className={styles.Header}>
+                    <Button
+                        description="AGAIN!"
                         inputNum={inputNum}
                         randomNum={randomNum}
-                        check={check}
-                        userNum={userNum}
+                        resetAll={resetAllOrChangePage}
                     />
+                    <Button
+                        description="LEADER BOARD"
+                        inputNum={inputNum}
+                        randomNum={randomNum}
+                        resetAll={resetAllOrChangePage}
+                    />
+                
+                    <LogOut />
                 </div>
-                <div className={styles.statistics}>
-                    <Text text={userNum === -1 ? "LET'S START" : userNum > randomNum ? 'TO HIGH 📈' : userNum < randomNum ? 'TO LOW 📉' : 'WIN'}
-                        currentScore={currentScore} highScore={highScore} />
-                    <Text text="Score" currentScore={currentScore} highScore={highScore} />
-                    <Text text="HighScore!" currentScore={currentScore} highScore={highScore} />
+                <div className={styles.theNumber}>
+                    <GameTitle />
+                    <Text text="<Between 1 and 20>" currentScore={currentScore} highScore={highScore} />
+                    <TheNumber number={randomNum} userNum={userNum} />
+                </div>
+                <div className={styles.interactiveContainer}>
+                    <div className={styles.inputAndButton}>
+                        <InputNumber
+                            setInputNum={setInputNum}
+                            inputNum={inputNum}
+                            randomNum={randomNum}
+                            check={check}
+                            userNum={userNum}
+                        />
+                    </div>
+                    <div className={styles.statistics}>
+                        <Text text={userNum === -1 ? "LET'S START" : userNum > randomNum ? 'TO HIGH 📈' : userNum < randomNum ? 'TO LOW 📉' : 'WIN'}
+                            currentScore={currentScore} highScore={highScore} />
+                        <Text text="Score" currentScore={currentScore} highScore={highScore} />
+                        <Text text="HighScore!" currentScore={currentScore} highScore={highScore} />
+                    </div>
                 </div>
             </div>
         </div>

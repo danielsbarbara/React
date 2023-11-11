@@ -17,6 +17,12 @@
     align-items: center;
 }
 
+.ajustcontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
 .Header{
     display: flex;
     gap: 3rem;
