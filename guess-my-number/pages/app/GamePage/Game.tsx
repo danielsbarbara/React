@@ -68,13 +68,16 @@ export default function Game() {
         getUserHighScore()
     }, [])
 
-    function check(inputNum: number, randomNum: number, description: string) {
-        setUserNum(inputNum)
-        result = inputNum
-        result !== randomNum && setCurrentScore(currentScore > 0 ? currentScore - 1 : currentScore)
-        if (currentScore > highScore && result === randomNum) {
-            setHighScore(currentScore)
-            SetHighScoreUser(currentScore)
+    function check(inputNum: number, randomNum: number, event: any, description: string) {
+        console.log(description)
+        if(event.key === 'Enter' || description === "CHECK") {
+            setUserNum(inputNum)
+            result = inputNum
+            result !== randomNum && setCurrentScore(currentScore > 0 ? currentScore - 1 : currentScore)
+            if (currentScore > highScore && result === randomNum) {
+                setHighScore(currentScore)
+                SetHighScoreUser(currentScore)
+            }
         }
     }
 

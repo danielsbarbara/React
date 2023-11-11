@@ -1,7 +1,7 @@
 const {MongoClient} = require('mongodb')
 
-const url: any = process.env.MONGODB_URI
-
+// const url: any = process.env.MONGODB_URI
+const url: string = "mongodb://127.0.0.1:27017"
 const dbDefaultName: string = "Guess-my-number"
 let client: any = undefined
 

@@ -16,21 +16,24 @@ export function InputNumber({ inputNum, setInputNum, randomNum, check, userNum }
     }
 
     return (
-        <div className={styles.all}>
-            <div className={styles.container}>
-                <input
-                    type="number"
-                    placeholder="0"
-                    className={styles.input}
-                    value={inputNum}
-                    onChange={(event) => handleChange(event)}
-                />
+      
+            <div className={styles.all}>
+                <div className={styles.container}>
+                    <input
+                        type="number"
+                        placeholder="0"
+                        className={styles.input}
+                        value={inputNum}
+                        onChange={(event) => handleChange(event)}
+                        onKeyDown={(event) => check(inputNum, randomNum, event )}
+                    />
+                </div>
+                <button
+                    onClick={(event) => check(inputNum, randomNum,event, "CHECK")}
+                    disabled={userNum === randomNum ? true : false}
+                    className={styles.buttonCheck}
+                >CHECK!</button>
             </div>
-            <button
-                onClick={() => check(inputNum, randomNum, "CHECK")}
-                disabled={userNum === randomNum ? true : false}
-                className={styles.buttonCheck}
-            >CHECK!</button>
-        </div>
+      
     )
 }
