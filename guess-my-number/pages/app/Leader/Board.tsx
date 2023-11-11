@@ -2,9 +2,20 @@ import styles from "./Board.module.css"
 import { LeaderBoardList } from "@/components/LeaderBoardList/LeaderBoardList"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+
+type Token = {
+    token: string
+}
+
 export default function LeaderBoard() {
     const [leaderBoard, setLeaderBoard] = useState()
     const router = useRouter()
+
+    const token = (): Token | null => {
+        const userToken = localStorage.getItem('token')
+        return userToken ? JSON.parse(userToken) as Token : null
+    }
+
     async function getLeaderBoard() {
         const res = await fetch('/api/v1/getleaderboard')
         if (res.status === 200) {
@@ -18,6 +29,7 @@ export default function LeaderBoard() {
     }
 
     useEffect(() => {
+        if (token() === null) router.push('/')
         getLeaderBoard()
     }, [])
 
