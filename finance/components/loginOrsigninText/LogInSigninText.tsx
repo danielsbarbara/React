@@ -6,6 +6,6 @@ interface textProps {
 
 export function LoginSigninText({text}: textProps){
     return(
-        <h4>{text}</h4>
+        <h2 className={styles.h}>{text}</h2>
     )
 }

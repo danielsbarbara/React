@@ -21,6 +21,7 @@ export function Forms({description, type, info, setInfo}: props){
 
     return(
         <input 
+        className={styles.input}
         type={type} 
         placeholder={description} 
         value={info[description === "Confirm Password" ? "confirmPassword" : description.toLowerCase()]}

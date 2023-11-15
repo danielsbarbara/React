@@ -7,6 +7,8 @@ interface props {
 
 export function LogInButtons({description, submit}: props){
     return(
-        <button onClick={() => submit(description)}>{description}</button>
+        <button 
+        className={styles.buttons}
+        onClick={() => submit(description)}>{description}</button>
     )
 }

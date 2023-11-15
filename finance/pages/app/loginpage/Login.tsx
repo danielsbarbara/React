@@ -48,6 +48,7 @@ export default function Login() {
             <div className={styles.button}>
                 <LogInButtons description={isLogin ? "Enter" : "Submit"} submit={submit} />
                 <LogInButtons description={isLogin ? "Register" : "Back"} submit={submit} />
+            </div>
                 <ToastContainer
                     position="bottom-center"
                     autoClose={2000}
@@ -60,7 +61,7 @@ export default function Login() {
                     pauseOnHover
                     theme="dark"
                 />
-            </div>
+                <video src="/videos/loginVideo.mp4" autoPlay muted loop className={styles.video}></video>
         </div>
     )
 }
