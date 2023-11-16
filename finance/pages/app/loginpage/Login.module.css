@@ -15,6 +15,20 @@
     z-index: 1;
 }
 
+.loginWithLines{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.line {
+    height: 2px;
+    width: 30%;
+    background-color: white;
+}
+
 .forms{
     height: 25%;
     display: flex;

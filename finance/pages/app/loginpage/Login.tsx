@@ -37,7 +37,11 @@ export default function Login() {
         <div className={styles.page}>
             <div className={styles.titles}>
                 <Titlelogin />
-                <LoginSigninText text={isLogin ? "Log In" : "Sign In"} />
+                <div className={styles.loginWithLines}>
+                    <span className={styles.line}/>
+                    <LoginSigninText text={isLogin ? "Log In" : "Sign In"} />
+                    <span className={styles.line}/>
+                </div>
             </div>
             <div className={styles.forms}>
                 {!isLogin && <Forms description="Name" type="text" info={info} setInfo={setInfo} />}
