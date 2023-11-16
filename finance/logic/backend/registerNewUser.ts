@@ -1,11 +1,11 @@
-import { CheckUserByEmail, RegisterNewUser } from "@/database/CRUD";
+import { CheckUserByEmail, GetUserId, RegisterNewUser } from "@/database/CRUD";
 import { genSalt } from "bcrypt-ts";
 import { hash } from "bcrypt-ts/browser";
 
 interface userInfoObj {
     name: string,
     email: string,
-    password: string
+    password: string,
 }
 
 export async function registerNewUser(userInfo: userInfoObj){

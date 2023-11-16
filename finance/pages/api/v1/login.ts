@@ -1,3 +1,4 @@
+import { GetUserName } from "@/database/CRUD";
 import { aproveLogIn } from "@/logic/backend/aproveLogIn";
 import { createTokenSession } from "@/logic/backend/generateTokenSession";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -12,6 +13,7 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
     const result: true | string = await aproveLogIn(email, password)
     if(result === "Email doesn't exists") return res.status(401).json({result: result})
     if(result === "Incorrect Password") return res.status(401).json({result: result})
+    const name: string | undefined = await GetUserName(email)
     const token: string = await createTokenSession(email)
-    return res.status(200).json({result: token})
+    return res.status(200).json({result: {token, name}})
 }

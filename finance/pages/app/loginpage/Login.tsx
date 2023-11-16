@@ -8,11 +8,13 @@ import { logIn } from "@/logic/frontend/login/fetchLogIn";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { fetchSignin } from "@/logic/frontend/login/fetchSigin";
+import { useRouter } from "next/navigation";
 
 
 export default function Login() {
     const [isLogin, setisLogin] = useState(true)
     const [info, setInfo] = useState({ name: '', email: '', password: '', confirmPassword: '' })
+    const router = useRouter()
     const notifyS = (msg: string) => toast.success(msg)
     const notifyE = (msg: string) => toast.error(msg)
 
@@ -21,9 +23,10 @@ export default function Login() {
         if (description === "Back") return setisLogin(true)
         if (description === "Enter") {
             const result: string = await logIn(info)
-            if (result.length < 24) return notifyE(result)
+            if (typeof result === 'string') return notifyE(result)
             notifyS("Welcome!")
-            localStorage.setItem("token", result)
+            localStorage.setItem("token", JSON.stringify(result))
+            setTimeout(() => router.push('app/HomePage/Home'), 2000)
             return
         } else if (description === "Submit") {
             const result: string | Boolean = await fetchSignin(info)
@@ -36,7 +39,7 @@ export default function Login() {
     return (
         <div className={styles.page}>
             <div className={styles.titles}>
-                <Titlelogin />
+                <Titlelogin title="Finance Flow"/>
                 <div className={styles.loginWithLines}>
                     <span className={styles.line}/>
                     <LoginSigninText text={isLogin ? "Log In" : "Sign In"} />

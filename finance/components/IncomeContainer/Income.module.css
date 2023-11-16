@@ -1,0 +1,36 @@
+.greenContainer{
+    background-color: rgba(0, 128, 0, 0.616);
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    border-radius: 5px;
+}
+
+.redContainer {
+    background-color: rgba(255, 0, 0, 0.622);
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    border-radius: 5px;
+}
+
+.input{
+    width: 5rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.button{
+    background-color: rgba(255, 255, 255, 0.162);
+    border: none;
+    border: 1px solid black;
+    height: 1.5rem;
+    width: 4rem;
+    border-radius: 10px;
+}
