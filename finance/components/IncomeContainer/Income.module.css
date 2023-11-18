@@ -1,36 +1,58 @@
 .greenContainer{
     background-color: rgba(0, 128, 0, 0.616);
-    height: 30%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.6rem;
     border-radius: 5px;
+    padding: 0.5rem;
 }
 
 .redContainer {
     background-color: rgba(255, 0, 0, 0.622);
-    height: 30%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.6rem;
     border-radius: 5px;
-}
-
-.input{
-    width: 5rem;
-    text-align: center;
-    font-size: 1rem;
+    padding: 0.5rem;
 }
 
 .button{
     background-color: rgba(255, 255, 255, 0.162);
     border: none;
     border: 1px solid black;
-    height: 1.5rem;
-    width: 4rem;
+    height: 1.6rem;
+    width: 5rem;
     border-radius: 10px;
+}
+
+.modalBox{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.h4{
+    font-size: 1.5rem;
+}
+
+.input{
+    height: 1.8rem;
+    border-radius: 5px;
+    text-align: center;
+    outline: none;
+}
+
+.buttonsContainer{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
 }

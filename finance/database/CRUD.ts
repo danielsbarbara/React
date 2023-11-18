@@ -1,15 +1,18 @@
+import { ObjectId } from "mongodb"
 import { GetCollection } from "./connecToMongo"
 
 interface mongoObj{
     collection: object,
     _id: object,
+    userId: object,
     name: string | undefined,
     email: string | undefined,
     insertedId: object
     findOne: Function,
     insertOne: Function,
     updateOne: Function,
-    password: string
+    password: string,
+    movements: Array<string>
 }
 
 const dbName: string = "FinanceApp"
@@ -41,26 +44,46 @@ export async function GetUserId(email: string) {
     return result._id
 }
 
+export async function GetUserIdByToken(token: string) {
+    const collection: mongoObj = await GetCollection(dbName, Sessions)
+    const result: mongoObj = await collection.findOne({_id: new ObjectId(token)})
+    return result.userId
+}
+
 export async function GetUserName(email: string) {
     const collection: mongoObj = await GetCollection(dbName, Users)
     const result: mongoObj = await collection.findOne({email: email})
     return result.name
 }
 
+export async function AssociateAccount(userId:object, accountId:object) {
+    const collection: mongoObj = await GetCollection(dbName, Users)
+    const result: mongoObj = await collection.updateOne({_id: userId}, {$set: {account: accountId}})
+    return result
+}
+// Sessions Collection
 export async function CreateNewSessionToken(userId: object) {
     const collection: mongoObj = await GetCollection(dbName, Sessions)
     const result: mongoObj = await collection.insertOne({userId})
     return result.insertedId
 }
 
+
+//Accounts Collection
 export async function CreateNewAccount(account: object) {
     const collection: mongoObj = await GetCollection(dbName, accounts)
     const result: mongoObj = await collection.insertOne({...account})
     return result.insertedId
 }
 
-export async function AssociateAccount(userId:object, accountId:object) {
-    const collection: mongoObj = await GetCollection(dbName, Users)
-    const result: mongoObj = await collection.updateOne({_id: userId}, {$set: {account: accountId}})
+export async function InsertIncomeOutcome(userId: object, incomeObject: object) {
+    const collection: mongoObj = await GetCollection(dbName, accounts)
+    const result: mongoObj = await collection.updateOne({userId: userId}, {$push: {movements: incomeObject}})
     return result
+}
+
+export async function GetMovements(userId: object) {
+    const collection: mongoObj = await GetCollection(dbName, accounts)
+    const result: mongoObj = await collection.findOne({userId})
+    return result.movements
 }

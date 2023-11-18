@@ -1,11 +1,20 @@
 import styles from "./Movements.module.css"
 
-export function Movements(){
+interface movType {
+    mov: any
+}
+
+
+export function Movements({ mov }: movType) {
     return (
         <div className={styles.mov}>
-            <p>description</p>
-            <p>date</p>
-            <p>value</p>
+            {mov.map((trans: any, i: any) =>
+                <div className={styles.content}>
+                    <p>{trans.description}</p>
+                    <p>{trans.date}</p>
+                    <p>{trans.amount}€</p>
+                </div>
+            )}
         </div>
     )
 }
