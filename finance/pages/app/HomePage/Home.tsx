@@ -41,7 +41,7 @@ interface balObje {
 
 
 export default function Home() {
-    const [totalAcc, setTotalAcc] = useState<Array<balProps>>([])
+    const [totalAcc, setTotalAcc] = useState<Array<any>>([])
     const [movements, setMovements] = useState<movObj>(mov)
     const [userName, setUserName] = useState<string | undefined>()
     const router = useRouter()
@@ -73,9 +73,11 @@ export default function Home() {
             <div className={styles.header}>
                 <HomeTitle name={userName} title="Welcome," />
                 {/* Logo */}
-                <DateText />
                 <LogoutButton />
             </div>
+                <div className={styles.dateContainer}>
+                    <DateText />
+                </div>
             <div className={styles.balance}>
                 <HomeTitle name={userName} title="Current balance" />
                 <Balance balance={totalAcc}/>

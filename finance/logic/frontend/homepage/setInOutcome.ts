@@ -18,7 +18,9 @@ export async function setInOutCome(movements: movType, description: string){
     const formatDate: any = {
         day: "numeric",
         month: "numeric",
-        year: "numeric"
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric"
     }
     
     const now: Date = new Date()

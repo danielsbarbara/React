@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb"
 import { GetCollection } from "./connecToMongo"
+import User from "@/pages/api/v1/user/info/[user]"
 
 interface mongoObj{
     collection: object,
@@ -56,6 +57,16 @@ export async function GetUserName(email: string) {
     return result.name
 }
 
+export async function GetUserInfo(userId: object) {
+    const collection: mongoObj = await GetCollection(dbName, Users)
+    const result: mongoObj = await collection.findOne({_id: userId})
+    const userInfo = {
+        name: result.name,
+        email: result.email
+    }
+    return userInfo
+}
+
 export async function AssociateAccount(userId:object, accountId:object) {
     const collection: mongoObj = await GetCollection(dbName, Users)
     const result: mongoObj = await collection.updateOne({_id: userId}, {$set: {account: accountId}})
@@ -78,7 +89,7 @@ export async function CreateNewAccount(account: object) {
 
 export async function InsertIncomeOutcome(userId: object, incomeObject: object) {
     const collection: mongoObj = await GetCollection(dbName, accounts)
-    const result: mongoObj = await collection.updateOne({userId: userId}, {$push: {movements: incomeObject}})
+    const result: mongoObj = await collection.updateOne({userId: userId}, {$push: {movements: {$each : [incomeObject], $position: 0}}})
     return result
 }
 
