@@ -14,12 +14,14 @@ interface mongoObj{
     updateOne: Function,
     password: string,
     movements: Array<string>
+    targets: object
 }
 
 const dbName: string = "FinanceApp"
 const Users: string = "Users"
 const Sessions: string = "Sessions"
 const accounts: string = "Accounts"
+const Targets: string = "Targets"
 
 export async function CheckUserByEmail(email: string) {
     const collection: mongoObj = await GetCollection(dbName, Users)
@@ -67,11 +69,6 @@ export async function GetUserInfo(userId: object) {
     return userInfo
 }
 
-export async function AssociateAccount(userId:object, accountId:object) {
-    const collection: mongoObj = await GetCollection(dbName, Users)
-    const result: mongoObj = await collection.updateOne({_id: userId}, {$set: {account: accountId}})
-    return result
-}
 // Sessions Collection
 export async function CreateNewSessionToken(userId: object) {
     const collection: mongoObj = await GetCollection(dbName, Sessions)
@@ -87,6 +84,13 @@ export async function CreateNewAccount(account: object) {
     return result.insertedId
 }
 
+export async function AssociateAccount(userId:object, accountId:object, targetId: object) {
+    const collection: mongoObj = await GetCollection(dbName, Users)
+    console.log(targetId)
+    const result: mongoObj = await collection.updateOne({_id: userId}, {$set: {account: accountId, targets: targetId}})
+    return result
+}
+
 export async function InsertIncomeOutcome(userId: object, incomeObject: object) {
     const collection: mongoObj = await GetCollection(dbName, accounts)
     const result: mongoObj = await collection.updateOne({userId: userId}, {$push: {movements: {$each : [incomeObject], $position: 0}}})
@@ -98,3 +102,22 @@ export async function GetMovements(userId: object) {
     const result: mongoObj = await collection.findOne({userId})
     return result.movements
 }
+
+//Targets Collections
+export async function CreateNewTargets(targetObject: object) {
+    const collection: mongoObj = await GetCollection(dbName, Targets)
+    const result: mongoObj = await collection.insertOne({...targetObject})
+    return result.insertedId
+}
+
+export async function GetTargets(userId: object) {
+    const collection: mongoObj = await GetCollection(dbName, Targets)
+    const result: mongoObj = await collection.findOne({userId})
+    return result.targets
+}
+
+export async function SetNewTarget(userId: object, newTargetObject: object) {
+    const collection: mongoObj = await GetCollection(dbName, Targets)
+    const result: mongoObj = await collection.updateOne({userId: userId}, {$push: {targets: {$each: [newTargetObject], $position: 0}}})
+    return result
+} 

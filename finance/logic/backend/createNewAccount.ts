@@ -1,4 +1,4 @@
-import { AssociateAccount, CreateNewAccount, GetUserId } from "@/database/CRUD";
+import {AssociateAccount, CreateNewAccount, CreateNewTargets, GetUserId } from "@/database/CRUD";
 
 export async function createNewAccount(email: string){
     
@@ -6,10 +6,16 @@ export async function createNewAccount(email: string){
 
     const optionsAccount = {
         userId,
-        movements: []
+        movements: [],
+    }
+
+    const targetObject = {
+        userId,
+        targets: []
     }
 
     const createAccount: object = await CreateNewAccount(optionsAccount)
-    const associateAccount: object = await AssociateAccount(userId, createAccount)
+    const targetId: object = await CreateNewTargets(targetObject)
+    const associateAccount: object = await AssociateAccount(userId, createAccount, targetId)
     return
 }

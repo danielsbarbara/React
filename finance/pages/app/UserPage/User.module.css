@@ -4,11 +4,14 @@
     align-items: center;
     gap: 2rem;
     height: 100vh;
-    background-color: bisque;
 }
 
 .photoContainer{
-    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.444);
     width: 100px;
     height: 100px;
 }

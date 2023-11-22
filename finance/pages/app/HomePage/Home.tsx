@@ -64,8 +64,13 @@ export default function Home() {
         if(!movements.amount) return notifyE("Add some amount")
         
         const result: any = await setInOutCome(movements, description)
-        if(result) return notifyS("Success!")
-        return notifyE("Something went wrong!")
+        if(result){
+            notifyS("Success!")
+            setTimeout(() => router.reload(), 2000)
+        } else {
+            return notifyE("Something went wrong!")
+        }
+        
     }   
 
     return (
