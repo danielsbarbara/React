@@ -113,7 +113,7 @@ export async function CreateNewTargets(targetObject: object) {
 export async function GetTargets(userId: object) {
     const collection: mongoObj = await GetCollection(dbName, Targets)
     const result: mongoObj = await collection.findOne({userId})
-    return result.targets
+    return result?.targets
 }
 
 export async function SetNewTarget(userId: object, newTargetObject: object) {
@@ -121,3 +121,9 @@ export async function SetNewTarget(userId: object, newTargetObject: object) {
     const result: mongoObj = await collection.updateOne({userId: userId}, {$push: {targets: {$each: [newTargetObject], $position: 0}}})
     return result
 } 
+
+export async function DeleteTargets(userId: object, deleteTarget: string) {
+    const collection: mongoObj = await GetCollection(dbName, Targets)
+    const result: mongoObj = await collection.updateOne({userId: userId}, {$pull: {targets: {description: deleteTarget}}})    
+    return result
+}

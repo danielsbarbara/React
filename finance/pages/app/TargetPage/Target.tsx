@@ -13,6 +13,7 @@ import { setNewTarget } from "@/logic/frontend/targetPage/setNewTarget";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import App from "@/pages/_app";
+import { deleteTarget } from "@/logic/frontend/targetPage/deleteTarget";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -80,13 +81,17 @@ export default function Target() {
         const result: any = await setNewTarget(inputInfo, user?.token)
         if (typeof result === 'string') {
             return notifyE(result)
-        } 
-        if(!result) return notifyE('Something went wrong, try again')
+        }
+        if (!result) return notifyE('Something went wrong, try again')
         setOpen(false)
         notifyS('Sucessfull')
         setTimeout(() => router.reload(), 2000)
     }
-
+    async function deleteUserTarget(description: string) {
+        const result = await deleteTarget(description)
+        if(typeof result === "string") return notifyE(result)
+        router.reload()
+    }
     return (
         <div className={styles.page}>
 
@@ -133,7 +138,7 @@ export default function Target() {
                     </div>
                 </Box>
             </Modal>
-            <TargetCards targets={targets} balance={balance} />
+            <TargetCards targets={targets} balance={balance} deleteUserTarget={deleteUserTarget}/>
             <div className={styles.navbarDiv}>
                 <Navbar />
             </div>

@@ -6,7 +6,7 @@ interface mongoObj{
     collection: Function
 }
 
-const url: string = "mongodb://127.0.0.1:27017"
+const url: string = "mongodb+srv://danielsantosbarbara:mURZnT8aArD9xNbx@cluster0.kqh81yz.mongodb.net/?retryWrites=true&w=majority"
 const defaultDbName: string = "FinanceApp"
 
 let client: any = undefined
