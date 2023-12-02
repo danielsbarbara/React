@@ -45,6 +45,28 @@
     z-index: 1;
 }
 
+.loading {
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    border-top: 2px solid black;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    z-index: 1;
+    animation: spining 1000ms ease-in-out infinite;
+}
+
+@keyframes spining {
+    0%{
+        rotate: 0deg;
+    }
+
+    100%{
+        rotate: 360deg
+    }
+}
+
 .video {
     width: 100%;
     height: 100vh;

@@ -75,6 +75,7 @@ export default function Home() {
 
     return (
         <div className={styles.page}>
+            <div className={styles.test}></div>
             <div className={styles.header}>
                 <HomeTitle name={userName} title="Welcome," />
                 {/* Logo */}

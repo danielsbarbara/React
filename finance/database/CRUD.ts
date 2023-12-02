@@ -86,7 +86,6 @@ export async function CreateNewAccount(account: object) {
 
 export async function AssociateAccount(userId:object, accountId:object, targetId: object) {
     const collection: mongoObj = await GetCollection(dbName, Users)
-    console.log(targetId)
     const result: mongoObj = await collection.updateOne({_id: userId}, {$set: {account: accountId, targets: targetId}})
     return result
 }
