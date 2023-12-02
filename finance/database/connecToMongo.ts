@@ -6,7 +6,7 @@ interface mongoObj{
     collection: Function
 }
 
-const url: string = "mongodb+srv://danielsantosbarbara:mURZnT8aArD9xNbx@cluster0.kqh81yz.mongodb.net/?retryWrites=true&w=majority"
+const url: string = process.env.MONGO_URI
 const defaultDbName: string = "FinanceApp"
 
 let client: any = undefined
