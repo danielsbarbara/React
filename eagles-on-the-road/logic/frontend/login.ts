@@ -13,7 +13,7 @@ export async function login(description: string, info: infoType){
             body: JSON.stringify({email: info.email, password: info.password})
         }
 
-        const res = await fetch('/api/v1/login', options)
+        const res = await fetch('api/v1/login', options)
         const body = await res.json()
         return body.result
     }
