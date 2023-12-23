@@ -28,7 +28,6 @@ export default function LeaderBoard(){
         }
         fetchLeaderBoardData()
     }, [])
-
     return(
         <div className="h-screen flex flex-col justify-between">
             <div className="text-[2.5rem] text-center">

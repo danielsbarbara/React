@@ -22,8 +22,6 @@ export async function GetUser(userEmail: string) {
 export async function GetUserInfo(userId: any) {
     const collection = await GetCollection(dbName, userCollection)
     const user = await collection.findOne({_id: new ObjectId(userId)})
-    user._id = undefined
-    user.email = undefined
     user.password = undefined
     return user
 }
@@ -50,7 +48,6 @@ export async function SubtractKms(userId: string, km: number) {
 
 // CRUD para corridas ou treinos
 export async function RegisterNewRun(info: Object) {
-    console.log(info);
     const collection = await GetCollection(dbName, runCollection)
     const result = await collection.insertOne(info)
     return result

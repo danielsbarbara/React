@@ -17,6 +17,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "logic/backend/runsNpratices"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "logic/backend/runsNpratices", "logic/backend/submissionPhoto.js"],
   "exclude": ["node_modules"]
 }
