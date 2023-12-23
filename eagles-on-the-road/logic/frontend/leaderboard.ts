@@ -4,7 +4,7 @@ export async function fetchLeaderBoard() {
         headers: {'Content-type': 'aplication/json'}
     }
 
-    const res = await fetch('api/v1/leaderboard')
+    const res = await fetch('/api/v1/leaderboard')
     if(res.status === 200){
         const body = await res.json()
         return body.result
