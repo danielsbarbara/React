@@ -29,7 +29,7 @@ export async function login(description: string, info: infoType){
             body: JSON.stringify(info)
         }
 
-        const res = await fetch('/api/v1/signin', options)
+        const res = await fetch('api/v1/signin', options)
         if(res.status === 200) {
             return true
         }
