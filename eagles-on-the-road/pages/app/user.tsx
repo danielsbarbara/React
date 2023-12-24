@@ -60,19 +60,21 @@ export default function User(){
     return(
         <>
             <div className="h-screen flex flex-col justify-between">
-                <div className="overflow-hidden w-full flex flex-col items-center gap-4 justify-center">
+                <div className="overflow-hidden w-full flex flex-col items-center gap-5 justify-center mt-9">
                     <img 
                     src={`/images/${userInfo?.photo}`} 
                     className="rounded-[50%] w-[200px] h-[200px]"
                     />
-                    <label>Trocar fotografica</label>
-                    <input 
+                    <label className="flex flex-col items-center bg-gray-500 rounded-lg text-white w-48 h-6">Trocar fotografica
+                    <input
+                    className="hidden" 
                     onChange={(e) => setPhoto(e.target.files?.[0])}
                     type="file"/>
-                    <button onClick={() => submit()}>Enviar</button>
-                <div>
+                    </label>
+                    {photo && <button onClick={() => submit()}>Enviar</button>}
+                <div className="flex flex-col gap-4 justify-center items-center text-xl">
                     <p>Nome: {userInfo?.name}</p>
-                    <p>email: {userInfo?.email}</p>
+                    <p>Email: {userInfo?.email}</p>
                 </div>
                 </div>
                 <Navbar/>
