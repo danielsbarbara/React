@@ -1,9 +1,9 @@
-import LogIn from "./app/logIn";
+import Login from "./app/LogIn";
 
 export default function Home() {
   return (
     <>
-      <LogIn/>
+      <Login/>
     </>
     
   )

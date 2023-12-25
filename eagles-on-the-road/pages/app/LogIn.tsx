@@ -15,7 +15,7 @@ interface getInfoType{
     confirmPassword: string
 }
 
-export default function LogIn(){
+export default function Login(){
     const [getInfo, setInfo] = useState<getInfoType>({name: '', email: '', password: '', confirmPassword: ''})
     const [register, setRegister] = useState<Boolean | undefined>(false)
     const router = useRouter()
@@ -36,7 +36,7 @@ export default function LogIn(){
         localStorage.setItem('jwt', JSON.stringify(result.token))
         localStorage.setItem('userId', JSON.stringify(result._id))
         notifySuccess('Bem vindo!')
-        setTimeout(() => router.push('/app/home'), 2000)
+        setTimeout(() => router.push('/app/Home'), 2000)
     }
     return(
         <>

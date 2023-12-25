@@ -8,7 +8,7 @@ export function LeaderCard({data, showFields}: LProps){
     const field = showFields === 1 ? 'resutlPratice' : showFields === 2 ? 'resultRuns' : showFields === 3 ? 'allTypes' : ''
     return(
         <div className="flex flex-col items-center gap-4 text-xl"> 
-           {field && data[field]?.map((el: any, i:number) => 
+           {field && data && data[field]?.map((el: any, i:number) => 
             <div
             className={`flex justify-around ${i === 0 ? 'bg-orange-200' : i === 1 ? 'bg-gray-300' : i === 2 ? 'bg-orange-400' : 'bg-white'}
             h-24 w-11/12 rounded-lg`} 
