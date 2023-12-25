@@ -40,11 +40,11 @@ export default function Login(){
     }
     return(
         <>
-        <div className="bg-eagle bg-cover bg-center h-screen flex flex-col gap-7 justify-center items-center">
-            <div className="-translate-y-52 text-[2.5rem]">
+        <div className="bg-eagle bg-cover bg-center h-screen flex flex-col justify-center items-center">
+            <div className="-translate-y-40 text-[2.5rem]">
                 <Title title='Águias na estrada'/>
             </div>
-            <div className="-translate-y-32 text-[1.5rem]">
+            <div className="-translate-y-28 text-[1.5rem]">
                 <Title title={register ? 'Registo' : 'Log In'}/>
             </div>
             <div className="h-40 flex flex-col gap-3">

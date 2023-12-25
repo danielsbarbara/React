@@ -26,7 +26,7 @@ export function Form({type, description, setInfo, getInfo}: FormProps){
     return(
         <>
             <input
-            className="text-black text-center h-8 w-60 rounded-md text-[1rem]"
+            className="text-black text-center h-8 w-60 rounded-md text-[1rem] border-[1px] border-black"
             value={description === 'Nome' ? getInfo.name : description === '@email' ? getInfo.email : description === '***Password***' ? getInfo.password : getInfo.confirmPassword}
             type={type} 
             placeholder={description} 
