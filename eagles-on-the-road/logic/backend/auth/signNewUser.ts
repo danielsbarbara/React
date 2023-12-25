@@ -10,6 +10,7 @@ interface UserInfoType{
 }
 
 export async function singUpNewUser(userInfo: UserInfoType) {
+    console.log(userInfo);
     const {email} = userInfo
     const user = await GetUser(email)
     if(user) return 'Este email já existe'

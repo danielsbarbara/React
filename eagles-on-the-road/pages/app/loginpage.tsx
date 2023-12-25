@@ -47,7 +47,7 @@ export default function Loginpage(){
             <div className="-translate-y-28 text-[1.5rem]">
                 <Title title={register ? 'Registo' : 'Log In'}/>
             </div>
-            <div className="h-40 flex flex-col gap-3">
+            <div className="h-40 flex flex-col gap-2">
                 {register && <Form type='text' description='Nome' setInfo={setInfo} getInfo={getInfo}/>}
                 <Form type='email' description='@email' setInfo={setInfo} getInfo={getInfo}/>
                 <Form type='password' description='***Password***' setInfo={setInfo} getInfo={getInfo}/>
