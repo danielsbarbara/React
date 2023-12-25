@@ -15,7 +15,7 @@ interface getInfoType{
     confirmPassword: string
 }
 
-export default function Login(){
+export default function Loginpage(){
     const [getInfo, setInfo] = useState<getInfoType>({name: '', email: '', password: '', confirmPassword: ''})
     const [register, setRegister] = useState<Boolean | undefined>(false)
     const router = useRouter()

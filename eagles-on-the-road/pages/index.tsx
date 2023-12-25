@@ -1,10 +1,10 @@
-import Login from "./app/login";
+import Loginpage from "./app/loginpage";
 
 
 export default function Index() {
   return (
     <>
-      <Login/>
+      <Loginpage/>
     </>
     
   )
