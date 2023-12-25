@@ -32,14 +32,14 @@ export default function LeaderBoard(){
         <div className="h-screen flex flex-col justify-between">
             <div className="text-[2.5rem] text-center">
             <Title title="🏆"/>
-            </div>
-            <div className="-translate-y-64 flex flex-col gap-6">
+            <div className="-translate flex flex-col gap-6">
                 <div className="flex gap-4 text-xl">
                     <Fields field="Treinos" value={1} showField={showField} setShowField={setShowField}/>
                     <Fields field="Corridas" value={2} showField={showField} setShowField={setShowField}/>
                     <Fields field="Tudo" value={3} showField={showField} setShowField={setShowField}/>
                 </div>
                 <LeaderCard data={data} showFields={showField}/>
+            </div>
             </div>
             <Navbar/>
         </div>

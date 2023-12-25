@@ -39,7 +39,7 @@ export function RunsCard({userRuns, showRuns}: RunsCardProps) {
     }
 
     return( 
-        <div className="w-[95%] h-96 overflow-auto no-scrollbar flex flex-col items-center gap-8" key={Math.random()}>
+        <div className="w-[95%] overflow-auto no-scrollbar flex flex-col items-center gap-8" key={Math.random()}>
             {showRuns === 2 ? 
             userRuns?.map((run: userRunsType, i:number) => run.type !== 'practice' &&
             <>
@@ -61,7 +61,9 @@ export function RunsCard({userRuns, showRuns}: RunsCardProps) {
             </>
             ) : showRuns === 1 ? userRuns?.map((run: userRunsType, i: number) => run.type !== 'runs' &&
             <>
-            <div key={Math.random()} className="flex justify-between w-full border-[1px] border-black/50 p-2 rounded-lg shadow-2xl"
+            <div 
+            key={Math.random()} 
+            className="flex justify-between w-[90%] border-[1px] border-black/50 p-2 rounded-lg shadow-2xl"
             onClick={() => {setShowButton(!showButton); setIndex(i)}}
             >
                 <div className="p-2">

@@ -72,7 +72,7 @@ export default function Home(){
                     <Subtitles description="Meus treinos" showRuns={showRuns} setShowRuns={setShowRuns} value={1} />
                     <Subtitles description="Minhas corridas" showRuns={showRuns} setShowRuns={setShowRuns} value={2}/>
                 </div>
-                <div className="w-full flex justify-center">
+                <div className="w-full flex justify-center h-[236px] overflow-scroll">
                     <RunsCard userRuns={runs} showRuns={showRuns}/>
                 </div>
                 <div className="w-full">

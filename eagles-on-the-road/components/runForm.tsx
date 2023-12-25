@@ -23,7 +23,7 @@ export function RunForm(){
         type: 'runs',
         description: '',
         km: '',
-        time: '',
+        time: '00:00',
         date: ''
     })
     const notifySuccess = (msg: string) => toast.success(msg);
