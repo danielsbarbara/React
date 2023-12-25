@@ -3,10 +3,6 @@ interface LProps{
     showFields: number
 }
 
-interface dataType {
-
-}
-
 export function LeaderCard({data, showFields}: LProps){
 
     const field = showFields === 1 ? 'resutlPratice' : showFields === 2 ? 'resultRuns' : showFields === 3 ? 'allTypes' : ''
