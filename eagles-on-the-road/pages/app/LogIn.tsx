@@ -36,7 +36,7 @@ export default function Login(){
         localStorage.setItem('jwt', JSON.stringify(result.token))
         localStorage.setItem('userId', JSON.stringify(result._id))
         notifySuccess('Bem vindo!')
-        setTimeout(() => router.push('/app/Home'), 2000)
+        setTimeout(() => router.push('/app/home'), 2000)
     }
     return(
         <>

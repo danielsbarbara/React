@@ -1,6 +1,7 @@
 import Login from "./app/LogIn";
 
-export default function Home() {
+
+export default function Index() {
   return (
     <>
       <Login/>
