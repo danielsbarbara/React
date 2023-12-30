@@ -41,10 +41,10 @@ export default function Loginpage(){
     return(
         <>
         <div className="bg-eagle bg-cover bg-center h-screen flex flex-col justify-center items-center">
-            <div className="-translate-y-40 text-[2.5rem]">
-                <Title title='Águias na estrada'/>
+            <div className="-translate-y-40 text-[1.5rem] font-title">
+                <Title title='Kuk'/>
             </div>
-            <div className="-translate-y-28 text-[1.5rem]">
+            <div className="-translate-y-28 text-[1rem] font-text">
                 <Title title={register ? 'Registo' : 'Log In'}/>
             </div>
             <div className="h-40 flex flex-col gap-2">
@@ -53,7 +53,7 @@ export default function Loginpage(){
                 <Form type='password' description='***Password***' setInfo={setInfo} getInfo={getInfo}/>
                 {register && <Form type='password' description='Confirmar Password' setInfo={setInfo} getInfo={getInfo}/>}
             </div>
-            <div className="flex gap-7">
+            <div className="flex gap-7 font-text">
                 <ButtonLogIn description={register ? 'Submeter' : 'Entrar'} buttonAction={buttonActions}/>
                 <ButtonLogIn description={register ? 'Cancelar' : 'Registar'} buttonAction={buttonActions}/>
             </div>

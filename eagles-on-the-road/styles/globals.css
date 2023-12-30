@@ -10,6 +10,16 @@
     scrollbar-width: none;
   }
 }
+@layer base {
+   @font-face {
+    font-family: 'flyeaglesfly';
+    src: url('/fonts/flyeaglesfly.ttf');
+   }
+   @font-face {
+    font-family: 'bebas-neue';
+    src: url('/fonts/BebasNeue-Regular.ttf');
+   }
+}
 *{
   padding: 0;
   margin: 0;

@@ -6,7 +6,8 @@ interface UserInfoType{
     email: string,
     password: string,
     distance: number,
-    photo: string
+    photo: string,
+    role: string
 }
 
 export async function singUpNewUser(userInfo: UserInfoType) {
@@ -17,6 +18,7 @@ export async function singUpNewUser(userInfo: UserInfoType) {
     const encryptedPassword = await bcrypt.hash(userInfo.password, 12)
     userInfo.password = encryptedPassword
     userInfo.distance = 0
+    userInfo.role = 'user'
     userInfo.photo = 'user-default.jpg'
     await SingUpNewUser(userInfo) 
     return true

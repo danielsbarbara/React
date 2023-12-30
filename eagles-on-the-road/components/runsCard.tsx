@@ -45,11 +45,11 @@ export function RunsCard({userRuns, showRuns}: RunsCardProps) {
             <>
             <div 
             key={Math.random()} 
-            className="w-[90%] flex justify-between border-[1px] border-black/50 p-2 rounded-lg shadow-2xl"
+            className="w-[90%] flex justify-between border-[1px] border-black/50 p-1 rounded-lg shadow-2xl"
             onClick={() => {setShowButton(!showButton); setIndex(i)}}
             >
                 <div className="p-2">
-                    <p className="text-xl">{run.description}</p>
+                    <p className="font-bold">{run.description}</p>
                     <p>{new Intl.DateTimeFormat('pt-PT', dataOptions).format(new Date(run.date))}</p>
                 </div>
                 <div className="text-center p-2">
@@ -63,11 +63,11 @@ export function RunsCard({userRuns, showRuns}: RunsCardProps) {
             <>
             <div 
             key={Math.random()} 
-            className="flex justify-between w-[90%] border-[1px] border-black/50 p-2 rounded-lg shadow-2xl"
+            className="flex justify-between w-[90%] border-[1px] border-black/50 p-1 rounded-lg shadow-2xl"
             onClick={() => {setShowButton(!showButton); setIndex(i)}}
             >
                 <div className="p-2">
-                    <p className="text-xl">{run.description}</p>
+                    <p className="font-bold">{run.description}</p>
                     <p>{new Intl.DateTimeFormat('pt-PT', dataOptions).format(new Date(run.date))}</p>
                 </div>
                 <div className="p-2">

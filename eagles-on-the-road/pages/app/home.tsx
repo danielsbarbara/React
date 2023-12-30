@@ -52,11 +52,11 @@ export default function Home(){
     return(
         <>
             <div className="h-screen flex flex-col items-center justify-between">
-                <div className="text-[2rem]">
+                <div className="text-[1.5rem]">
                     <Title title={`Bem vindo ${userData.name}`}/>
                 </div>
                     {showForm ?   
-                    <div className="bg-shoes bg-cover w-5/6 h-60 flex justify-between items-center shadow-2xl rounded-lg">
+                    <div className="bg-shoes bg-cover w-5/6 h-64 flex justify-between items-center shadow-2xl rounded-lg">
                     <RunForm/>
                     </div> :                    
                     <KmsCard 

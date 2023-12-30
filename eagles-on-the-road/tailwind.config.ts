@@ -14,6 +14,10 @@ const config: Config = {
         'lboard': "url('/images/leadboardRun.jpg')"
       },
     },
+    fontFamily: {
+      title: ["flyeaglesfly"],
+      text: ["bebas-neue"]
+    }
   },
   plugins: [],
 }

@@ -28,7 +28,7 @@ export async function GetUserInfo(userId: any) {
 
 export async function GetAllUsers() {
     const collection = await GetCollection(dbName, userCollection)
-    const user = await collection.find().project({password: 0, email: 0}).toArray()
+    const user = await collection.find({role: 'user'}).project({password: 0, email: 0}).toArray()
     return user
 }
 
