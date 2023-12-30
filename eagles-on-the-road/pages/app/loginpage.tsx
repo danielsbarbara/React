@@ -18,6 +18,7 @@ interface getInfoType{
 export default function Loginpage(){
     const [getInfo, setInfo] = useState<getInfoType>({name: '', email: '', password: '', confirmPassword: ''})
     const [register, setRegister] = useState<Boolean | undefined>(false)
+    const [loading, setLoading] = useState<Boolean>(false)
     const router = useRouter()
     const notifySuccess = (msg: string) => toast.success(msg);
     const notifyError = (msg: string) => toast.error(msg);
@@ -25,18 +26,27 @@ export default function Loginpage(){
     async function buttonActions(description: string) {
         if(description === 'Registar') return setRegister(true)
         if(description === 'Cancelar') return setRegister(false)
-
+        setLoading(true)
         const result = await login(description, getInfo)
 
-        if(typeof result === 'string') return notifyError(result)
+        if(typeof result === 'string') {
+            setLoading(false)
+            return notifyError(result)
+        }
         if(typeof result === 'boolean') {
             notifySuccess('Conta criada!')
-           return setTimeout(() => setRegister(false), 1500)
+           return setTimeout(() => {
+            setLoading(false)
+            setRegister(false)
+           },1500)
         }
         localStorage.setItem('jwt', JSON.stringify(result.token))
         localStorage.setItem('userId', JSON.stringify(result._id))
         notifySuccess('Bem vindo!')
-        setTimeout(() => router.push('/app/home'), 2000)
+        setTimeout(() => {
+            router.push('/app/home')
+            setLoading(false)
+        }, 2000)
     }
     return(
         <>
@@ -53,10 +63,11 @@ export default function Loginpage(){
                 <Form type='password' description='***Password***' setInfo={setInfo} getInfo={getInfo}/>
                 {register && <Form type='password' description='Confirmar Password' setInfo={setInfo} getInfo={getInfo}/>}
             </div>
-            <div className="flex gap-7 font-text">
+            {!loading ? <div className="flex gap-7 font-text">
                 <ButtonLogIn description={register ? 'Submeter' : 'Entrar'} buttonAction={buttonActions}/>
                 <ButtonLogIn description={register ? 'Cancelar' : 'Registar'} buttonAction={buttonActions}/>
-            </div>
+            </div> :
+                <div className="h-[30px] w-[30px] border-black border-[2px] border-t-white rounded-[50%] animate-spin"/>}
         </div>
         <ToastContainer
             position="top-right"
