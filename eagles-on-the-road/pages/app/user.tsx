@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { type PutBlobResult } from '@vercel/blob';
+import { upload } from '@vercel/blob/client';
 
 interface tokenType {
     token: string
@@ -22,6 +23,7 @@ interface userInfoType {
 export default function User(){
     const [userInfo, setUserInfo] = useState<userInfoType>()
     const [photo, setPhoto] = useState<File>()
+    const [blob, setBlob] = useState<PutBlobResult | null>(null);
     const notifyError = (msg: string) => toast.error(msg);
     const router = useRouter()
 
@@ -43,20 +45,17 @@ export default function User(){
         if(!photo) return
 
         try{
-            const formData = new FormData()
-            formData.append('file', photo)
-
-            const options = {
-                method: 'POST',
-                body: formData
-            }
-            
-            const res = await fetch(`/api/v1/photo/${userInfo?._id}`, options)
-
+                const newBlob = await upload(photo.name, photo, {
+                access: 'public',
+                handleUploadUrl: '/api/v1/photo/userId',
+              });
+     
+              setBlob(newBlob)
         } catch(e){
             console.log(e)
         }
     }
+    console.log(blob?.url)
     return(
         <>
             <div className="h-screen flex flex-col justify-between">

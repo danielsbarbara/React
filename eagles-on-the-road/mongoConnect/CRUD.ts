@@ -32,6 +32,13 @@ export async function GetAllUsers() {
     return user
 }
 
+export async function ChangePhotoURL(url: string) {
+    console.log(url);
+    const collection = await GetCollection(dbName, userCollection)
+    const user = await collection.update({email: 'dani@gmail.com'}, {$set: {photo: url}})
+    return user
+}
+
 //Adicionar km's ao usuário
 export async function AddKms(userId: string, km: string | number) {
     const collection = await GetCollection(dbName, userCollection)
