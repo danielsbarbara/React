@@ -2,9 +2,7 @@ interface LProps{
     data: any,
     showFields: number
 }
-
 export function LeaderCard({data, showFields}: LProps){
-
     const field = showFields === 1 ? 'resutlPratice' : showFields === 2 ? 'resultRuns' : showFields === 3 ? 'allTypes' : ''
     return(
         <div className="flex flex-col items-center gap-4 text-lg"> 
@@ -15,7 +13,7 @@ export function LeaderCard({data, showFields}: LProps){
             key={i}>
             <div className="flex gap-3 justify-self-start">
                 <p className="text-[1.8rem] self-center">{i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : ''}</p>
-                <img src={`/images/${data?.resutlPratice[0].photo}`} className="self-center h-[50px] w-[50px] rounded-[50%]"/>
+                <img src={data?.resutlPratice[i].photo.startsWith('http') ? data?.resutlPratice[i].photo : `/images/user-default.jpg`} className="self-center h-[50px] w-[50px] rounded-[50%]"/>
             </div>
             <p className="self-center">{el.name}</p>
             <p className="self-end">{el.distance ? el.distance : 0} kms</p>

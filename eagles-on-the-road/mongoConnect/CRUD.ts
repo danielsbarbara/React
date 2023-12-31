@@ -32,10 +32,9 @@ export async function GetAllUsers() {
     return user
 }
 
-export async function ChangePhotoURL(url: string) {
-    console.log(url);
+export async function ChangePhotoURL(userId: any, photoURL: string) {
     const collection = await GetCollection(dbName, userCollection)
-    const user = await collection.update({email: 'dani@gmail.com'}, {$set: {photo: url}})
+    const user = await collection.updateOne({_id: new ObjectId(userId)}, {$set: {photo: photoURL}})
     return user
 }
 

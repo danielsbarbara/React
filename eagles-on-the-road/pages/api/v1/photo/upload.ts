@@ -33,7 +33,6 @@ export default async function handler(request: NextApiRequest, response: NextApi
           // Run any logic after the file upload completed
           // const { userId } = JSON.parse(tokenPayload);
           // await db.update({ avatar: blob.url, userId });
-          await ChangePhotoURL(blob.url)
         } catch (error) {
           throw new Error('Could not update user');
         }
