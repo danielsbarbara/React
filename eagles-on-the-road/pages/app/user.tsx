@@ -59,7 +59,7 @@ export default function User(){
               const updatePhoto = await fetch(`/api/v1/photo/${userInfo?._id}`, options)
 
               if(updatePhoto.status === 200){
-                notifySuccess('Fotografia mudada comn sucesso!')
+                notifySuccess('Fotografia mudada com sucesso!')
                 setTimeout(() => {
                     router.reload()
                 }, 1500);
