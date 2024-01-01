@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { RunsCard } from "@/components/runsCard"
 import { Navbar } from "@/components/NavBar"
 import { RunForm } from "@/components/runForm"
+import { Loading } from "@/components/loading"
 
 interface tokenType {
     token: string
@@ -51,6 +52,8 @@ export default function Home(){
     }, [])
     return(
         <>
+            {userData.name ? 
+            <>
             <div className="h-screen flex flex-col items-center justify-between">
                 <div className="text-[1.5rem]">
                     <Title title={`Bem vindo ${userData.name}`}/>
@@ -92,6 +95,10 @@ export default function Home(){
                     pauseOnHover
                     theme="dark"
                     />
+                    </>
+                    :
+                    <Loading/>
+                    }
             </>
     )
 }

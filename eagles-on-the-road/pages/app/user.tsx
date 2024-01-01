@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { upload } from '@vercel/blob/client';
+import { Loading } from "@/components/loading";
 
 interface tokenType {
     token: string
@@ -75,6 +76,8 @@ export default function User(){
     }
     return(
         <>
+            {userInfo ? 
+            <>
             <div className="h-screen flex flex-col justify-between">
                 <div className="overflow-hidden w-full flex flex-col items-center gap-5 justify-center mt-9">
                     <img 
@@ -109,7 +112,11 @@ export default function User(){
                 draggable
                 pauseOnHover
                 theme="dark"
-                />
+                /> 
+                </>
+                : 
+                <Loading/>
+                }
         </>
     )
 }

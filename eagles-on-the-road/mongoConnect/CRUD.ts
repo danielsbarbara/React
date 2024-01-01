@@ -98,8 +98,13 @@ export async function GetRunsKms(userId: any, type: string) {
 
 //obter todos os treinos/corridas
 export async function GetAllRunsPratice(userId: string, type: string) {
+    let result
     const collection = await GetCollection(dbName, runCollection)
-    const result = await collection.find({userId: userId, type: type}).toArray()
+    if(type === 'all') {
+        result = await collection.find({userId: userId}).toArray()
+    } else {
+        result = await collection.find({userId: userId, type: type}).toArray()
+    }
     return result
 }
 

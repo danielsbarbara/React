@@ -20,7 +20,7 @@ interface tokenType {
 
 export function RunForm(){
     const [getInfo, setInfo] = useState <infoType>({
-        type: 'runs',
+        type: 'practice',
         description: '',
         km: '',
         time: '00:00',

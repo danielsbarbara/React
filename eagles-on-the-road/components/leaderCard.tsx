@@ -1,13 +1,26 @@
+import { useRouter } from "next/navigation"
+
 interface LProps{
     data: any,
     showFields: number
 }
+
+interface userInfoType{
+    _id: string
+}
+
 export function LeaderCard({data, showFields}: LProps){
     const field = showFields === 1 ? 'resutlPratice' : showFields === 2 ? 'resultRuns' : showFields === 3 ? 'allTypes' : ''
+    const router = useRouter()
+
+    async function handleClick(userInfo: userInfoType) {
+        router.push(`/app/${userInfo._id}`)
+    }
     return(
         <div className="flex flex-col items-center gap-4 text-lg"> 
            {field && data && data[field]?.map((el: any, i:number) => 
             <div
+            onClick={() => handleClick(el)}
             className={`flex justify-between ${i === 0 ? 'bg-orange-200' : i === 1 ? 'bg-gray-300' : i === 2 ? 'bg-orange-400' : 'bg-white'}
             h-16 w-11/12 rounded-lg p-2`} 
             key={i}>
