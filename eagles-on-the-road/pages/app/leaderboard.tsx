@@ -2,6 +2,7 @@ import { Navbar } from "@/components/NavBar";
 import { Title } from "@/components/Title";
 import { Fields } from "@/components/fields";
 import { LeaderCard } from "@/components/leaderCard";
+import { Loading } from "@/components/loading";
 import { validateToken } from "@/logic/frontend/fetchJWTToken";
 import { token } from "@/logic/frontend/getToken";
 import { fetchLeaderBoard } from "@/logic/frontend/leaderboard";
@@ -14,7 +15,7 @@ interface tokenType {
 
 export default function LeaderBoard(){
     const [data, setData] = useState()
-    const [showField, setShowField] = useState(0)
+    const [showField, setShowField] = useState(1)
     const router = useRouter()
 
     useEffect(() => {
@@ -32,13 +33,20 @@ export default function LeaderBoard(){
         <div className="h-screen flex flex-col justify-between">
             <div className="text-[2.5rem] text-center">
             <Title title="🏆"/>
-            <div className="-translate flex flex-col gap-6">
+            <div className="flex flex-col gap-6">
                 <div className="flex gap-4 text-xl">
                     <Fields field="Treinos" value={1} showField={showField} setShowField={setShowField}/>
                     <Fields field="Corridas" value={2} showField={showField} setShowField={setShowField}/>
                     <Fields field="Tudo" value={3} showField={showField} setShowField={setShowField}/>
                 </div>
-                <LeaderCard data={data} showFields={showField}/>
+                {data 
+                ? 
+                <LeaderCard data={data} showFields={showField}/> 
+                :
+                <div className="text-base -translate-y-[200px]"> 
+                <Loading/>
+                </div>
+                }
             </div>
             </div>
             <Navbar/>
