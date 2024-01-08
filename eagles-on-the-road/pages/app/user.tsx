@@ -46,19 +46,27 @@ export default function User(){
         if(!photo) return
         setLoading(true)
         try{
-                const newBlob = await upload(photo.name, photo, {
-                access: 'public',
-                handleUploadUrl: '/api/v1/photo/upload',
-              })
 
-              const options = {
+            const formData = new FormData()
+            formData.append('file', photo)
+            formData.append('upload_preset', 'my-uploads')
+
+            const options = {
+                method: 'POST',
+                body: formData
+            }
+            const changePhoto = await fetch('https://api.cloudinary.com/v1_1/dyuafqx9c/image/upload', options)
+          
+            const changePhotoResult = await changePhoto.json()
+            
+              const options2 = {
                 method: 'POST',
                 headers: {'Cotent-Type': 'application/json'},
-                body: JSON.stringify({photoURL: newBlob?.url})
+                body: JSON.stringify({photoURL: changePhotoResult?.secure_url})
               }
 
-              const updatePhoto = await fetch(`/api/v1/photo/${userInfo?._id}`, options)
-
+              const updatePhoto = await fetch(`/api/v1/photo/${userInfo?._id}`, options2)
+            
               if(updatePhoto.status === 200){
                 notifySuccess('Fotografia mudada com sucesso!')
                 setTimeout(() => {
