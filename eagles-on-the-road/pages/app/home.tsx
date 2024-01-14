@@ -40,14 +40,19 @@ export default function Home(){
         const userId: tokenType | null = token('userId')
 
         async function fetchTokenValidation() {
-            const isValidate = await validateToken(jwt)
-            if(!isValidate) return router.push('/')
+            const isValid = await validateToken(jwt)
+
+            if(!isValid) return router.push('/')
+
             const userData = await fetchUserData(userId)
             const userRuns = await fetchRuns(userId)
+
             if(!userData || !userRuns) return notifyError('Aconteceu um erro, recarrega a página!')
+
             setRuns(userRuns)
             setUserData(userData)
         }
+
         fetchTokenValidation()
     }, [])
     return(

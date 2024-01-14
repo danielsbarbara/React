@@ -23,10 +23,14 @@ export default function LeaderBoard(){
 
         async function fetchLeaderBoardData() {
             const validateJWT = await validateToken(jwt)
+
             if(!validateJWT) return router.push('/')
+
             const lData = await fetchLeaderBoard()
+
             setData(lData);
         }
+        
         fetchLeaderBoardData()
     }, [])
     return(

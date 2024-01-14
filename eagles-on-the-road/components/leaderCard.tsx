@@ -29,7 +29,7 @@ export function LeaderCard({data, showFields}: LProps){
                 <img src={data?.[field][i].photo.startsWith('http') ? data?.[field][i].photo : `/images/user-default.jpg`} className="self-center h-[50px] w-[50px] rounded-[50%]"/>
             </div>
             <p className="self-center">{el.name}</p>
-            <p className="self-end">{el.distance ? el.distance : 0} kms</p>
+            <p className="self-end">{String(el.distance).includes('.') ? el.distance.toFixed(1) : el.distance != 0 ? el.distance : 0} kms</p>
             </div>
             )} 
         </div>

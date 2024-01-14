@@ -8,6 +8,7 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { upload } from '@vercel/blob/client';
 import { Loading } from "@/components/loading";
+import { Sugestion } from "@/components/sugestions";
 
 interface tokenType {
     token: string
@@ -42,11 +43,11 @@ export default function User(){
     }, [])
     
     async function submit(){
-        
         if(!photo) return
-        setLoading(true)
-        try{
 
+        setLoading(true)
+
+        try {
             const formData = new FormData()
             formData.append('file', photo)
             formData.append('upload_preset', 'my-uploads')
@@ -55,6 +56,7 @@ export default function User(){
                 method: 'POST',
                 body: formData
             }
+
             const changePhoto = await fetch('https://api.cloudinary.com/v1_1/dyuafqx9c/image/upload', options)
           
             const changePhotoResult = await changePhoto.json()
@@ -74,11 +76,12 @@ export default function User(){
                 }, 1500);
                 return 
               }
+
               setLoading(false)
               notifyError('Aconteceu um erro, tenta novamente mais tarde')
+
             } catch(e){
                 setLoading(false)
-                console.log(e)
                 notifyError('Aconteceu um erro, tenta novamente mais tarde')
         }
     }
@@ -106,6 +109,11 @@ export default function User(){
                     <p>Nome: {userInfo?.name}</p>
                     <p>Email: {userInfo?.email}</p>
                 </div>
+                    <Sugestion 
+                    name={userInfo.name} 
+                    notifySuccess={notifySuccess}
+                    notifyError={notifyError}
+                    />
                 </div>
                 <Navbar/>
             </div>

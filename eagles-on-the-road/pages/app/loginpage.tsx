@@ -26,13 +26,16 @@ export default function Loginpage(){
     async function buttonActions(description: string) {
         if(description === 'Registar') return setRegister(true)
         if(description === 'Cancelar') return setRegister(false)
+
         setLoading(true)
+
         const result = await login(description, getInfo)
 
         if(typeof result === 'string') {
             setLoading(false)
             return notifyError(result)
         }
+
         if(typeof result === 'boolean') {
             notifySuccess('Conta criada!')
            return setTimeout(() => {
@@ -40,9 +43,12 @@ export default function Loginpage(){
             setRegister(false)
            },1500)
         }
+
         localStorage.setItem('jwt', JSON.stringify(result.token))
         localStorage.setItem('userId', JSON.stringify(result._id))
+
         notifySuccess('Bem vindo!')
+        
         setTimeout(() => {
             router.push('/app/home')
             setLoading(false)
@@ -68,6 +74,7 @@ export default function Loginpage(){
                 <ButtonLogIn description={register ? 'Cancelar' : 'Registar'} buttonAction={buttonActions}/>
             </div> :
                 <div className="h-[30px] w-[30px] border-black border-[2px] border-t-white rounded-[50%] animate-spin"/>}
+                <img src="/images/loginRunImage.png" className="absolute translate-y-[130%]"/>
         </div>
         <ToastContainer
             position="top-right"

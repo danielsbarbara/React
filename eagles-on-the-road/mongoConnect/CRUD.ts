@@ -108,3 +108,9 @@ export async function GetAllRunsPratice(userId: string, type: string) {
     return result
 }
 
+export async function RegisterNewSugestion(sugestion: object) {
+    const collection = await GetCollection(dbName, 'sugestions')
+    const result = await collection.insertOne(sugestion)
+    return result
+}
+
