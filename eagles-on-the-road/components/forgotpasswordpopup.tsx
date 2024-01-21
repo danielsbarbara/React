@@ -31,7 +31,7 @@ export function ForgotPassword({setForgotPw, notifyError, notifySuccess}: propsT
         <>  
             <p>
                 Insere o teu email para recuperar a password, 
-                irás receber um link no teu email para colocares uma nova password
+                irás receber um link no teu email com as instruções para fazeres o reset à password.
             </p>
             <input
             value={email} 
