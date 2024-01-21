@@ -38,6 +38,24 @@ export async function ChangePhotoURL(userId: any, photoURL: string) {
     return user
 }
 
+export async function AddResetField(email: string, number: number) {
+    const collection = await GetCollection(dbName, userCollection)
+    const result = await collection.updateOne({email: email}, {$set: {resetPwCode: number}})
+    return result
+}
+
+export async function CheckCode(email: string, code: number) {
+    const collection = await GetCollection(dbName, userCollection)
+    const result = await collection.findOne({email: email, resetPwCode: code})
+    return result?.resetPwCode
+}
+
+export async function ChangePw(email: string, password: string) {
+    const collection = await GetCollection(dbName, userCollection)
+    const result = await collection.updateOne({email: email}, {$set: {password: password}, $unset: {resetPwCode: ""}})
+    return result
+}
+
 //Adicionar km's ao usuário
 export async function AddKms(userId: string, km: string | number) {
     const collection = await GetCollection(dbName, userCollection)
