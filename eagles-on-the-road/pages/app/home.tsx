@@ -14,6 +14,7 @@ import { RunsCard } from "@/components/runsCard"
 import { Navbar } from "@/components/NavBar"
 import { RunForm } from "@/components/runForm"
 import { Loading } from "@/components/loading"
+import { Weather } from "@/components/weather"
 
 interface tokenType {
     token: string
@@ -26,11 +27,17 @@ interface userDataType {
     runs: Array<any>
 }
 
+interface impaType {
+    longitude: string
+    latitude: string
+}
+
 export default function Home(){
     const [userData, setUserData] = useState<userDataType>({name: '', distance: undefined, practice:[], runs:[]})
     const [runs, setRuns] = useState()
     const [showRuns, setShowRuns] = useState<number>(0)
     const [showForm, setShowForm] = useState(false)
+    const [weather, setWeather] = useState()
     const router = useRouter()
     const notifySuccess = (msg: string) => toast.success(msg);
     const notifyError = (msg: string) => toast.error(msg);
@@ -54,7 +61,24 @@ export default function Home(){
         }
 
         fetchTokenValidation()
+        getWeather()
     }, [])
+
+    async function getWeather() {
+        let weather: any
+        if (navigator.geolocation) weather = navigator.geolocation.getCurrentPosition( async position => {
+            const userLatitude = position.coords.latitude
+            const userLongitude = position.coords.longitude
+    
+            const impaAPI = await fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/hp-daily-forecast-day0.json')
+            if(impaAPI.status === 200) {
+                const body = await impaAPI.json()
+                setWeather(body.data.reduce((prev: impaType, curr: impaType) => 
+                curr.latitude.startsWith(String(userLatitude).slice(0,3)) && curr.longitude.startsWith(String(userLongitude).slice(0,2)) ? prev = curr : prev
+                ))
+            }
+        })
+    }
     return(
         <>
             {userData.name ? 
@@ -63,6 +87,10 @@ export default function Home(){
                 <div className="text-[1.5rem]">
                     <Title title={`Bem vindo ${userData.name}`}/>
                 </div>
+                <div>
+                {weather && 
+                    <Weather weather={weather}/>
+                }</div>
                     {showForm ?   
                     <div className="bg-shoes bg-cover w-5/6 h-64 flex justify-between items-center shadow-2xl rounded-lg">
                     <RunForm/>
@@ -74,7 +102,9 @@ export default function Home(){
                     />
                     }
                 <div>
-                    <button onClick={() => setShowForm(!showForm)}>{showForm ? 'Cancelar' : 'Adicionar Corrida ou Treino'}</button>
+                    <button 
+                    className="bg-red-500 text-white w-56 h-8 rounded-b-lg shadow-md drop-shadow-sm"
+                    onClick={() => setShowForm(!showForm)}>{showForm ? 'Cancelar' : 'Adicionar Corrida ou Treino'}</button>
                 </div>
                 <div className="w-full flex justify-around p-3">
                     <Subtitles description="Meus treinos" showRuns={showRuns} setShowRuns={setShowRuns} value={1} />
