@@ -1,7 +1,7 @@
 export async function fetchLeaderBoard(value: string) {
     const options = {
         method: 'GET',
-        headers: {'Content-type': 'aplication/json'}
+        headers: {'Content-Type': 'application/json'}
     }
     console.log(value)
     const res = await fetch(`/api/v1/${value}`, options)
