@@ -51,7 +51,7 @@ export default function User(){
             const formData = new FormData()
             formData.append('file', photo)
             formData.append('upload_preset', 'my-uploads')
-
+            
             const options = {
                 method: 'POST',
                 body: formData

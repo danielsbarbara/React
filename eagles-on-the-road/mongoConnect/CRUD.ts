@@ -4,7 +4,6 @@ import {GetCollection} from './mongoConnect'
 const dbName = process.env.DATABASE_NAME
 const userCollection = process.env.DATABASE_USERS_COLLECTION
 const runCollection = process.env.DATABASE_RUN_COLLECTION
-const praticeCollection = process.env.DATABASE_PRATICE_COLLECTION
 
 //CRUD para usuários
 export async function SingUpNewUser(userInfo: Object) {
@@ -102,16 +101,25 @@ export async function GetAllRuns() {
 }
 
 //Obter todos os kms em treino ou corrida
-export async function GetRunsKms(userId: any, type: string) {
+export async function GetRunsKms(userId: any, type: string, date: string) {
     const collection = await GetCollection(dbName, runCollection)
-    // const result = await collection.find({userId: userId}).toArray()
-    const result = await collection.aggregate([{$match: {userId: userId, type: type}},
-    {$group: {
-        _id: type,
-        totalDistance: {$sum: '$km'},
-    }}
+    if(date === 'All') {
+        const result = await collection.aggregate([{$match: {userId: userId, type: type}},
+        {$group: {
+            _id: type,
+            totalDistance: {$sum: '$km'}
+        }}
+        ]).toArray()
+        return result
+    } else {
+        const result = await collection.aggregate([{$match: {userId: userId, type: type, date: {$gte: `${date}-01`, $lte: `${date}-31`}}},
+        {$group: {
+            _id: type,
+            totalDistance: {$sum: '$km'}
+        }}
     ]).toArray()
     return result
+    }
 }
 
 //obter todos os treinos/corridas
@@ -132,3 +140,8 @@ export async function RegisterNewSugestion(sugestion: object) {
     return result
 }
 
+export async function GetOneRun(runId: string) {
+    const collection = await GetCollection(dbName, runCollection)
+    const result = await collection.findOne(new ObjectId(runId))
+    return result
+}

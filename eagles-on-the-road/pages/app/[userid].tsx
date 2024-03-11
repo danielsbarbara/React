@@ -12,6 +12,7 @@ interface tokenType {
 }
 
 interface userInfoType {
+    _id: number
     name: string,
     photo: string,
 }
@@ -51,6 +52,11 @@ export default function UserInfo(){
         }
         fetchUserInfo()
     }, [])
+
+    function runInfo(info: any){
+        router.push(`/app/run/${info._id}`)
+    }
+
     return( 
         <>
         {userInfo ? <div className="flex flex-col justify-between h-screen items-center">
@@ -68,6 +74,7 @@ export default function UserInfo(){
                 <div 
                 key={Math.random()}
                 className="flex justify-between w-[90%] p-1 border-[1px] border-black rounded-lg"
+                onClick={() => runInfo(el)}
                 >   
                     <div className="flex flex-col">
                         <p>{el.description}</p>

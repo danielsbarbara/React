@@ -88,19 +88,18 @@ export default function Home(){
                     <Title title={`Bem vindo ${userData.name}`}/>
                 </div>
                 <div>
-                {weather && 
-                    <Weather weather={weather}/>
-                }</div>
+                {weather && <Weather weather={weather}/>}
+                </div>
                     {showForm ?   
                     <div className="bg-shoes bg-cover w-5/6 h-64 flex justify-between items-center shadow-2xl rounded-lg">
                     <RunForm/>
-                    </div> :                    
+                    </div> 
+                    :                    
                     <KmsCard 
                     km={userData?.distance}
                     pratice={userData?.practice[0]?.totalDistance}
                     runs={userData?.runs[0]?.totalDistance}
-                    />
-                    }
+                    />}
                 <div>
                     <button 
                     className="bg-red-500 text-white w-56 h-8 rounded-b-lg shadow-md drop-shadow-sm"

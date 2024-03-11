@@ -12,9 +12,11 @@ export function Subtitles({description, showRuns, setShowRuns, value}: Subtitles
     }
     return(
         <div
-        className={`${value === showRuns ? 'bg-red-500' : ''} rounded-xl w-36 text-center h-7 flex items-center justify-center transition duration-500 cursor-pointer`} 
+        className="rounded-xl w-56 text-center h-7 flex items-center justify-center transition duration-500 cursor-pointer" 
         onClick={() => changeValue(description)}>
+            {value === showRuns ? <p className="font-title transition-opacity animate-pulse">K</p> : ''}
             <p>{description}</p>
+            {value === showRuns ? <p className="font-title transition-opacity animate-pulse">k</p> : ''}
         </div>
     )
 }
