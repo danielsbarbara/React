@@ -6,7 +6,7 @@ import { Loading } from "@/components/loading";
 import { SelectLeader } from "@/components/selectLeader";
 import { validateToken } from "@/logic/frontend/fetchJWTToken";
 import { token } from "@/logic/frontend/getToken";
-import { fetchLeaderBoard } from "@/logic/frontend/leaderboard";
+import { fetchLeaderBoard } from "@/logic/frontend/leaderboardFetch";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
