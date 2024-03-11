@@ -1,11 +1,10 @@
 export async function fetchLeaderBoard(value: string) {
     const options = {
-        method: 'POST',
-        headers: {'Content-type': 'application/json'},
-        body: JSON.stringify(value)
+        method: 'GET',
+        headers: {'Content-type': 'aplication/json'}
     }
     console.log(value)
-    const res = await fetch(`/api/v1/leaderboard`, options)
+    const res = await fetch(`/api/v1/${value}`, options)
     if(res.status === 200){
         const body = await res.json()
         return body.result
