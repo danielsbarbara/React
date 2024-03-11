@@ -3,7 +3,6 @@ export async function fetchLeaderBoard(value: string) {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
     }
-    console.log(value)
     const res = await fetch(`/api/v1/${value}`, options)
     if(res.status === 200){
         const body = await res.json()
