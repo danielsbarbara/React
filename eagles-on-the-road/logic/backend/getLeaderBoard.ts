@@ -25,13 +25,14 @@ export async function getLeaderBoard(date: string){
                 for(let y = 0; y < resultRuns.length; y++){
                     if(resultRuns[y]._id === resutlPratice[i]._id){
                         if(allTypes){
-                            allTypes = [...allTypes, allTypes[i] = {...resutlPratice[i], distance: resutlPratice[i].distance + (resultRuns[y].distance === undefined ? 0 : resultRuns[y].distance)}]
+                            allTypes = [...allTypes, allTypes[i] = {...resutlPratice[i], distance: resutlPratice[i].distance + (resultRuns[y].distance === undefined ? 0 : +resultRuns[y].distance)}]
                         } else {
-                            allTypes = [{...resutlPratice[i], distance: resutlPratice[i].distance + (resultRuns[y].distance === undefined ? 0 : resultRuns[y].distance)}]
+                            allTypes = [{...resutlPratice[i], distance: resutlPratice[i].distance + (resultRuns[y].distance === undefined ? 0 : +resultRuns[y].distance)}]
                         }
                     }
                 }
             }
+            allTypes.sort((a: any, b: any) => b.distance - a.distance)
         }
     }
     return ({resultRuns, resutlPratice, allTypes})
