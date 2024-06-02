@@ -4,8 +4,6 @@ export async function validateToken(jwt: any) {
         headers: {'Authorization': `jwt ${jwt}`}
     }
     const res = await fetch('/api/v1/token', options)
-    if(res.status === 200){
-        return true
-    }
-    return false
+
+    return res.status === 200
 }

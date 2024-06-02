@@ -11,9 +11,7 @@ export async function checkCode(info: infoType){
 
     const res = await fetch('/api/v1/forgotpw/checkcode', options)
 
-    if(res.status === 200) return true
-
-    return false
+    return res.status === 200
 }
 
 interface resetPwType {
@@ -29,6 +27,6 @@ export async function resetPw(email: string, password: string) {
     }
 
     const result = await fetch('/api/v1/forgotpw/changepw', options)
-    if(result.status === 200) return true
-    return false
+ 
+    return result.status === 200
 }

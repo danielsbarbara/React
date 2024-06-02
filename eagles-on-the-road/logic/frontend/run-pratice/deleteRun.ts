@@ -7,10 +7,7 @@ export async function deleteRunPratice(run: ObjType){
         method: 'DELETE',
         headers: {'Content-Type': 'aplication/json'}
     }
-    console.log(run._id);
     const res = await fetch(`/api/v1/runs-pratice/${run._id}`, option)
-    if(res.status === 200){
-        return true
-    }
-    return false
+
+    return res.status === 200 
 }

@@ -30,9 +30,7 @@ export async function login(description: string, info: infoType){
         }
 
         const res = await fetch('/api/v1/signin', options)
-        if(res.status === 200) {
-            return true
-        }
-        return 'Este email já está registado!'
+       
+        return res.status === 200 ? true : 'Este email já está registado!'
     }
 }

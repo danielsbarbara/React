@@ -9,8 +9,6 @@ export async function getWeather() {
         const userLatitude = position.coords.latitude
         const userLongitude = position.coords.longitude
 
-        console.log("Current Position:", userLatitude, userLongitude)
-
         const impaAPI = await fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/hp-daily-forecast-day0.json')
         if(impaAPI.status === 200) {
             const body = await impaAPI.json()

@@ -4,7 +4,6 @@ const url: string | undefined = process.env.DATABASE_URL
 const DBname: string | undefined = process.env.DATABASE_NAME
 
 let client: any = undefined
-
 async function GetMongoClient() {
     if(!client){
         try{

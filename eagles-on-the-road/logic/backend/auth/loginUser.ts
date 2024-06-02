@@ -16,7 +16,6 @@ interface userDbType {
 
 export async function loginUser(userInfo: userInfoType) {
     const {email, password} = userInfo
-
     const user: userDbType = await GetUser(email)
     if(!user) return 'Email não encontrado!'
 
@@ -26,5 +25,6 @@ export async function loginUser(userInfo: userInfoType) {
     const token = await generateJWT(user._id)
     user.token = token
     user.password = undefined
+
     return user
 }

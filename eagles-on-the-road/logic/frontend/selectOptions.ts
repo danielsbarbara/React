@@ -30,9 +30,6 @@ async function saveData(data: Array<arrayType>){
             body: JSON.stringify(data)
         }
         const result = await fetch('/api/v1/newDateSelect', updatedData)
-        if(result.status === 200){
-           return console.log('SelectOptions Updated')
-        }
 
-        return console.log('Error')
+        return result.status === 200 ? console.log('SelectOptions Updated') : console.log('Error')
 }
