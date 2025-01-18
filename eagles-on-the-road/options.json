@@ -1,1 +1,62 @@
-[{"value":"All","description":"Todas as datas"},{"value":"2023-12","description":"Dezembro 2023"},{"value":"2024-01","description":"Janeiro 2024"},{"value":"2024-02","description":"Fevereiro 2024"},{"value":"2024-03","description":"Março 2024"},{"value":"2024-04","description":"Abril 2024"},{"value":"2024-05","description":"Maio 2024"},{"value":"2024-06","description":"Junho 2024"},{"value":"2024-07","description":"Julho 2024"},{"value":"2024-08","description":"Agosto 2024"},{"value":"2024-09","description":"Setembro 2024"},{"value":"2024-10","description":"Outubro 2024"},{"value":"2024-11","description":"Novembro 2024"},{"value":"2025-01","description":"Janeiro 2025"}]
+[
+    {
+        "value": "All",
+        "description": "Todas as datas"
+    },
+    {
+        "value": "2023-12",
+        "description": "Dezembro 2023"
+    },
+    {
+        "value": "2024-01",
+        "description": "Janeiro 2024"
+    },
+    {
+        "value": "2024-02",
+        "description": "Fevereiro 2024"
+    },
+    {
+        "value": "2024-03",
+        "description": "Março 2024"
+    },
+    {
+        "value": "2024-04",
+        "description": "Abril 2024"
+    },
+    {
+        "value": "2024-05",
+        "description": "Maio 2024"
+    },
+    {
+        "value": "2024-06",
+        "description": "Junho 2024"
+    },
+    {
+        "value": "2024-07",
+        "description": "Julho 2024"
+    },
+    {
+        "value": "2024-08",
+        "description": "Agosto 2024"
+    },
+    {
+        "value": "2024-09",
+        "description": "Setembro 2024"
+    },
+    {
+        "value": "2024-10",
+        "description": "Outubro 2024"
+    },
+    {
+        "value": "2024-11",
+        "description": "Novembro 2024"
+    },
+    {
+        "value": "2024-12",
+        "description": "Dezembro 2024"
+    },
+    {
+        "value": "2025-01",
+        "description": "Janeiro 2025"
+    }
+]
