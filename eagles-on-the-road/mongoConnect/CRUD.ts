@@ -112,7 +112,12 @@ export async function GetRunsKms(userId: any, type: string, date: string) {
         ]).toArray()
         return result
     } else {
-        const result = await collection.aggregate([{$match: {userId: userId, type: type, date: {$gte: `${date}-01`, $lte: `${date}-31`}}},
+        const month = date.slice(5, date.length)
+        const year = date.slice(0, 4)
+        const startDate = new Date(Date.UTC(+year, +month - 1, 1))
+        const endDate = new Date(Date.UTC(+year, +month, 0))
+ 
+        const result = await collection.aggregate([{$match: {userId: userId, type: type, date: {$gte: startDate, $lte: endDate}}},
         {$group: {
             _id: type,
             totalDistance: {$sum: '$km'}

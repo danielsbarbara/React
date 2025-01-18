@@ -1,16 +1,16 @@
-const {MongoClient} = require('mongodb')
+const { MongoClient } = require('mongodb')
 
 const url: string | undefined = process.env.DATABASE_URL
 const DBname: string | undefined = process.env.DATABASE_NAME
 
 let client: any = undefined
 async function GetMongoClient() {
-    if(!client){
-        try{
+    if (!client) {
+        try {
             client = new MongoClient(url)
             await client.connect()
             console.log('⚡️ DB connections successfully! ⚡️')
-        } catch(err){
+        } catch (err) {
             console.log(err)
         }
     }

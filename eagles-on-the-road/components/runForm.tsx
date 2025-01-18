@@ -11,7 +11,7 @@ interface infoType {
     description: string,
     km: string | number | undefined,
     time: string | number,
-    date: string | number | readonly string[] | undefined
+    date: Date
 }
 
 interface tokenType {
@@ -24,7 +24,7 @@ export function RunForm() {
         description: '',
         km: '',
         time: '00:00',
-        date: `${todayDate.getFullYear()}-${todayDate.getMonth() + 1 < 10 ? `0${todayDate.getMonth() + 1}` : `${todayDate.getMonth() + 1}`}-${todayDate.getDate()}`
+        date: new Date()//`${todayDate.getFullYear()}-${todayDate.getMonth() + 1 < 10 ? `0${todayDate.getMonth() + 1}` : `${todayDate.getMonth() + 1}`}-${todayDate.getDate()}`
     })
     const notifySuccess = (msg: string) => toast.success(msg);
     const notifyError = (msg: string) => toast.error(msg);
@@ -66,7 +66,7 @@ export function RunForm() {
 
             <input
                 onChange={(e) => handlechange(e.target.value, 'date')}
-                value={getInfo.date}
+                value={String(getInfo.date)}
                 type="date"
             // placeholder="Data"
             />

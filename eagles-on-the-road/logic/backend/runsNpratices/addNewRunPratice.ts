@@ -3,7 +3,7 @@ interface infoType {
     description: string,
     km: string | number | undefined,
     time: string | number,
-    date: any
+    date: Date
 }
 
 interface tokenType {
@@ -24,6 +24,7 @@ export async function addNewRunOrPratice(info: infoType, userId: tokenType | nul
             date: new Date(info.date),
         })
     }
+
     const res = await fetch('/api/v1/runs-pratice/new', options)
     if(res.status === 200){
         return true
